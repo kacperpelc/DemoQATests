@@ -11,11 +11,9 @@ import org.openqa.selenium.support.ui.FluentWait;
 import java.time.Duration;
 
 public class NewWait {
+    private final WebDriver driver = WebDriverPool.getWebDriver();
 
     FluentWait wait;
-    public NewWait() {
-        //wait = new FluentWait<>(WebDriverPool.getWebDriver());
-    }
 
     public void sleep(int seconds) {
         try {
@@ -32,7 +30,7 @@ public class NewWait {
     }
 
     public void pollingUntilVisibilityOfElement(int seconds, int timeout, WebElement element) {
-        FluentWait<WebDriver> wait = new FluentWait<>(WebDriverPool.getWebDriver())
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -40,7 +38,7 @@ public class NewWait {
     }
 
     public void pollingUntilVisibilityOfElement(int seconds, int timeout, By locator) {
-        FluentWait<WebDriver> wait = new FluentWait<>(WebDriverPool.getWebDriver())
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -48,7 +46,7 @@ public class NewWait {
     }
 
     public void pollingUntilInvisibilityOfElement(int seconds, int timeout, WebElement element) {
-        FluentWait<WebDriver> wait = new FluentWait<>(WebDriverPool.getWebDriver())
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -56,7 +54,7 @@ public class NewWait {
     }
 
     public void pollingUntilInvisibilityOfElement(int seconds, int timeout, By locator) {
-        FluentWait<WebDriver> wait = new FluentWait<>(WebDriverPool.getWebDriver())
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -64,7 +62,7 @@ public class NewWait {
     }
 
     public void pollingUntilInvisibilityOfElementWithText(int seconds, int timeout, By locator, String text) {
-        FluentWait<WebDriver> wait = new FluentWait<>(WebDriverPool.getWebDriver())
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -72,7 +70,7 @@ public class NewWait {
     }
 
     public void pollingUntilElementBeingClickable(int seconds, int timeout, WebElement element) {
-        FluentWait<WebDriver> wait = new FluentWait<>(WebDriverPool.getWebDriver())
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -80,10 +78,17 @@ public class NewWait {
     }
 
     public void pollingUntilElementBeingClickable(int seconds, int timeout, By locator) {
-        FluentWait<WebDriver> wait = new FluentWait<>(WebDriverPool.getWebDriver())
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
         wait.until(ExpectedConditions.elementToBeClickable(WebDriverPool.getWebDriver().findElement(locator)));
+    }
+
+    public void pollingUntilVisibilityOfAlert(int seconds, int timeout) {
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+                .pollingEvery(Duration.ofSeconds(seconds))
+                .withTimeout(Duration.ofSeconds(timeout));
+        wait.until(ExpectedConditions.alertIsPresent());
     }
 }

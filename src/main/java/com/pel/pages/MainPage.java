@@ -2,7 +2,7 @@ package com.pel.pages;
 
 import com.pel.foundation.PageObject;
 import com.pel.foundation.WebDriverPool;
-import com.pel.pages.alertsFrameWindows.AlertsFrameWindowsPage;
+import com.pel.pages.alertsFrameWindows.alertsPage.AlertsFrameWindowsPage;
 import com.pel.pages.bookStoreApplication.BookStorePage;
 import com.pel.pages.elements.ElementsPage;
 import com.pel.pages.forms.FormsPage;
@@ -45,44 +45,38 @@ public class MainPage extends PageObject {
     }
 
     public ElementsPage clickElements() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, elements);
-        javaScript.scrollToElement(elements);
-        elements.click();
+        waitScrollClick(elements, 15);
         return new ElementsPage();
     }
 
     public FormsPage clickForms() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, forms);
-        javaScript.scrollToElement(forms);
-        forms.click();
+        waitScrollClick(forms, 15);
         return new FormsPage();
     }
 
     public AlertsFrameWindowsPage clickAlertsFrameWindows() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, alertsFrameWindows);
-        javaScript.scrollToElement(alertsFrameWindows);
-        alertsFrameWindows.click();
+        waitScrollClick(alertsFrameWindows, 15);
         return new AlertsFrameWindowsPage();
     }
 
     public WidgetsPage clickWidgets() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, widgets);
-        javaScript.scrollToElement(widgets);
-        widgets.click();
+        waitScrollClick(widgets, 15);
         return new WidgetsPage();
     }
 
     public InteractionsPage clickInteractions() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, bookStore);
-        javaScript.scrollToElement(bookStore);
-        bookStore.click();
+        waitScrollClick(interactions, 15);
         return new InteractionsPage();
     }
 
     public BookStorePage clickBookStore() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, bookStore);
-        javaScript.scrollToElement(bookStore);
-        bookStore.click();
+        waitScrollClick(bookStore, 15);
         return new BookStorePage();
+    }
+
+    private void waitScrollClick(WebElement element, int seconds) {
+        newWait.pollingUntilVisibilityOfElement(1, seconds, element);
+        javaScript.scrollToElement(element);
+        element.click();
     }
 }

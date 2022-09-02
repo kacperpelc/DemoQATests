@@ -161,7 +161,7 @@ public class EventCapture implements WebDriverListener {
     @Override
     public void afterClick(WebElement element) {
         /*NewWait newWait = new NewWait();
-        newWait.sleep(5);*/
+        newWait.sleep(3);*/
     }
 
     @Override

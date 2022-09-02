@@ -1,7 +1,10 @@
-package com.pel.pages.alertsFrameWindows;
+package com.pel.pages.alertsFrameWindows.alertsPage;
 
 import com.pel.foundation.PageObject;
-import com.pel.pages.bookStoreApplication.BookStorePage;
+import com.pel.pages.alertsFrameWindows.browserWindowsPage.BrowserWindowsPage;
+import com.pel.pages.alertsFrameWindows.FramesPage;
+import com.pel.pages.alertsFrameWindows.ModalDialogsPage;
+import com.pel.pages.alertsFrameWindows.NestedFramesPage;
 import com.pel.utilities.JavaScript;
 import com.pel.utilities.NewWait;
 import org.openqa.selenium.WebElement;
@@ -27,37 +30,33 @@ public class AlertsFrameWindowsPage extends PageObject {
     private WebElement modalDialogs;
 
     public BrowserWindowsPage clickBrowserWindows() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, browserWindows);
-        javaScript.scrollToElement(browserWindows);
-        browserWindows.click();
+        waitScrollClick(browserWindows, 15);
         return new BrowserWindowsPage();
     }
 
     public AlertsPage clickAlerts() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, alerts);
-        javaScript.scrollToElement(alerts);
-        alerts.click();
+        waitScrollClick(alerts, 15);
         return new AlertsPage();
     }
 
     public FramesPage clickFrames() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, frames);
-        javaScript.scrollToElement(frames);
-        frames.click();
+        waitScrollClick(frames, 15);
         return new FramesPage();
     }
 
     public NestedFramesPage clickNestedFrames() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, nestedFrames);
-        javaScript.scrollToElement(nestedFrames);
-        nestedFrames.click();
+        waitScrollClick(nestedFrames, 15);
         return new NestedFramesPage();
     }
 
     public ModalDialogsPage clickModalDialogs() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, modalDialogs);
-        javaScript.scrollToElement(modalDialogs);
-        modalDialogs.click();
+        waitScrollClick(modalDialogs, 15);
         return new ModalDialogsPage();
+    }
+
+    private void waitScrollClick(WebElement element, int seconds) {
+        newWait.pollingUntilVisibilityOfElement(1, seconds, element);
+        javaScript.scrollToElement(element);
+        element.click();
     }
 }

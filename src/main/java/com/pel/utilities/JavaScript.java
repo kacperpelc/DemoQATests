@@ -2,13 +2,15 @@ package com.pel.utilities;
 
 import com.pel.foundation.WebDriverPool;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class JavaScript {
+    private final WebDriver driver = WebDriverPool.getWebDriver();
     private final JavascriptExecutor jsExecutor;
 
     public JavaScript() {
-        jsExecutor = (JavascriptExecutor) WebDriverPool.getWebDriver();
+        jsExecutor = (JavascriptExecutor) driver;
     }
 
     public void scrollToElement(WebElement element) {
