@@ -2,7 +2,7 @@ package com.pel.pages;
 
 import com.pel.foundation.PageObject;
 import com.pel.foundation.WebDriverPool;
-import com.pel.pages.alertsFrameWindows.alertsPage.AlertsFrameWindowsPage;
+import com.pel.pages.alertsFrameWindows.AlertsFrameWindowsPage;
 import com.pel.pages.bookStoreApplication.BookStorePage;
 import com.pel.pages.elements.ElementsPage;
 import com.pel.pages.forms.FormsPage;

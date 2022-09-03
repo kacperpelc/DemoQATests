@@ -1,6 +1,7 @@
-package com.pel.pages.alertsFrameWindows.alertsPage;
+package com.pel.pages.alertsFrameWindows;
 
 import com.pel.foundation.PageObject;
+import com.pel.pages.alertsFrameWindows.alertsPage.AlertsPage;
 import com.pel.pages.alertsFrameWindows.browserWindowsPage.BrowserWindowsPage;
 import com.pel.pages.alertsFrameWindows.framesPage.FramesPage;
 import com.pel.pages.alertsFrameWindows.modalDialogsPage.ModalDialogsPage;

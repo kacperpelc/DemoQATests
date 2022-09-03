@@ -510,7 +510,7 @@ public class EventCapture implements WebDriverListener {
     public void afterFullscreen(WebDriver.Window window) {
     }
 
-    private void javaScript(WebDriver driver, WebElement element,String script) {
+    private void javaScript(WebDriver driver, WebElement element, String script) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         try {
             js.executeScript(script, element);

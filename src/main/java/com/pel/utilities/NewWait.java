@@ -84,4 +84,54 @@ public class NewWait {
                 .withTimeout(Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.alertIsPresent());
     }
+
+    public void pollingUntilAttributeToNotBeEmpty(int seconds, int timeout, WebElement element, String attribute) {
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+                .pollingEvery(Duration.ofSeconds(seconds))
+                .withTimeout(Duration.ofSeconds(timeout))
+                .ignoring(NoSuchElementException.class);
+        wait.until(ExpectedConditions.attributeToBeNotEmpty(element, attribute));
+    }
+
+    public void pollingUntilAttributeTotBeEmpty(int seconds, int timeout, WebElement element, String attribute) {
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+                .pollingEvery(Duration.ofSeconds(seconds))
+                .withTimeout(Duration.ofSeconds(timeout))
+                .ignoring(NoSuchElementException.class);
+        wait.until(ExpectedConditions.not(ExpectedConditions.attributeToBeNotEmpty(element, attribute)));
+    }
+
+    public void pollingUntilAttributeContains(int seconds, int timeout, WebElement element, String attribute, String value) {
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+                .pollingEvery(Duration.ofSeconds(seconds))
+                .withTimeout(Duration.ofSeconds(timeout))
+                .ignoring(NoSuchElementException.class);
+        wait.until(ExpectedConditions.attributeContains(element, attribute, value));
+    }
+
+    public void pollingUntilAttributeNotContains(int seconds, int timeout, WebElement element, String attribute, String value) {
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+                .pollingEvery(Duration.ofSeconds(seconds))
+                .withTimeout(Duration.ofSeconds(timeout))
+                .ignoring(NoSuchElementException.class);
+        wait.until(ExpectedConditions.not(ExpectedConditions.attributeContains(element, attribute, value)));
+    }
+
+    public void pollingUntilAttributeToBe(int seconds, int timeout, WebElement element, String attribute, String value) {
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+                .pollingEvery(Duration.ofSeconds(seconds))
+                .withTimeout(Duration.ofSeconds(timeout))
+                .ignoring(NoSuchElementException.class);
+        wait.until(ExpectedConditions.attributeToBe(element, attribute, value));
+    }
+
+    public void pollingUntilAttributeNotToBe(int seconds, int timeout, WebElement element, String attribute, String value) {
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+                .pollingEvery(Duration.ofSeconds(seconds))
+                .withTimeout(Duration.ofSeconds(timeout))
+                .ignoring(NoSuchElementException.class);
+        wait.until(ExpectedConditions.not(ExpectedConditions.attributeToBe(element, attribute, value)));
+    }
+
+
 }

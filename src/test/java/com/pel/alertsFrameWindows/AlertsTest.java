@@ -1,4 +1,4 @@
-package com.pel.elements.alertsFrameWindows;
+package com.pel.alertsFrameWindows;
 
 import com.pel.foundation.Base;
 import org.junit.jupiter.api.Tag;
