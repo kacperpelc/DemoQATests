@@ -11,20 +11,13 @@ import org.openqa.selenium.support.ui.FluentWait;
 import java.time.Duration;
 
 public class NewWait {
-    private final WebDriver driver = WebDriverPool.getWebDriver();
+    private WebDriver driver = WebDriverPool.getWebDriver();
 
     FluentWait wait;
 
     public void sleep(int seconds) {
         try {
             Thread.sleep(seconds * 1000L);
-        } catch (InterruptedException ignore) {
-        }
-    }
-
-    public void sleepMilliseconds(int milliseconds) {
-        try {
-            Thread.sleep(milliseconds);
         } catch (InterruptedException ignore) {
         }
     }

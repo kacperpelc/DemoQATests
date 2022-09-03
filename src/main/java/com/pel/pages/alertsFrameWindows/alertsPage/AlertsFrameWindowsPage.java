@@ -2,9 +2,9 @@ package com.pel.pages.alertsFrameWindows.alertsPage;
 
 import com.pel.foundation.PageObject;
 import com.pel.pages.alertsFrameWindows.browserWindowsPage.BrowserWindowsPage;
-import com.pel.pages.alertsFrameWindows.FramesPage;
-import com.pel.pages.alertsFrameWindows.ModalDialogsPage;
-import com.pel.pages.alertsFrameWindows.NestedFramesPage;
+import com.pel.pages.alertsFrameWindows.framesPage.FramesPage;
+import com.pel.pages.alertsFrameWindows.modalDialogsPage.ModalDialogsPage;
+import com.pel.pages.alertsFrameWindows.nestedFramesPage.NestedFramesPage;
 import com.pel.utilities.JavaScript;
 import com.pel.utilities.NewWait;
 import org.openqa.selenium.WebElement;
