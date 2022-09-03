@@ -3,7 +3,7 @@ package com.pel.pages.alertsFrameWindows.alertsPage;
 import com.pel.foundation.PageObject;
 import com.pel.foundation.WebDriverPool;
 import com.pel.utilities.JavaScript;
-import com.pel.utilities.NewWait;
+import com.pel.utilities.FluentWait;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class AlertsPage extends PageObject {
     JavaScript javaScript = new JavaScript();
-    NewWait newWait = new NewWait();
+    FluentWait fluentWait = new FluentWait();
 
     private final WebDriver driver = WebDriverPool.getWebDriver();
 
@@ -54,21 +54,21 @@ public class AlertsPage extends PageObject {
     }
 
     private void waitScrollClickWaitForAlert(WebElement element, int seconds) {
-        newWait.pollingUntilVisibilityOfElement(1, seconds, element);
+        fluentWait.pollingUntilVisibilityOfElement(1, seconds, element);
         javaScript.scrollToElement(element);
         element.click();
-        newWait.pollingUntilVisibilityOfAlert(1, 15);
+        fluentWait.pollingUntilVisibilityOfAlert(1, 15);
     }
 
     public AlertsPage checkIfMessageAfterConfirmBoxEquals(String message) {
-        newWait.pollingUntilVisibilityOfElement(1, 15, confirmBoxMessage);
+        fluentWait.pollingUntilVisibilityOfElement(1, 15, confirmBoxMessage);
         if(!confirmBoxMessage.getText().equals(message))
             throw new NoSuchElementException(String.format("Expected: %s, Actual: %s", confirmBoxMessage.getText(), message));
         return new AlertsPage();
     }
 
     public AlertsPage checkIfMessageAfterPromptBoxEquals(String message) {
-        newWait.pollingUntilVisibilityOfElement(1, 15, promptBoxMessage);
+        fluentWait.pollingUntilVisibilityOfElement(1, 15, promptBoxMessage);
         if(!promptBoxMessage.getText().equals(message))
             throw new NoSuchElementException(String.format("Expected: %s, Actual: %s", promptBoxMessage.getText(), message));
         return new AlertsPage();

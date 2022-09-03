@@ -4,7 +4,7 @@ import com.pel.foundation.PageObject;
 import com.pel.utilities.Check;
 import com.pel.utilities.Click;
 import com.pel.utilities.JavaScript;
-import com.pel.utilities.NewWait;
+import com.pel.utilities.FluentWait;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -12,7 +12,7 @@ public class ButtonsPage extends PageObject {
     Check check = new Check();
     Click click = new Click();
     JavaScript javaScript = new JavaScript();
-    NewWait newWait = new NewWait();
+    FluentWait fluentWait = new FluentWait();
 
     @FindBy(id = "doubleClickBtn")
     private WebElement doubleClickButton;
@@ -66,7 +66,7 @@ public class ButtonsPage extends PageObject {
     }
 
     private void waitAndScroll(WebElement element, int timeout) {
-        newWait.pollingUntilVisibilityOfElement(1, timeout, element);
+        fluentWait.pollingUntilVisibilityOfElement(1, timeout, element);
         javaScript.scrollToElement(element);
     }
 }

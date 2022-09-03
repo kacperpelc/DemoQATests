@@ -160,8 +160,8 @@ public class EventCapture implements WebDriverListener {
 
     @Override
     public void afterClick(WebElement element) {
-        /*NewWait newWait = new NewWait();
-        newWait.sleep(3);*/
+        /*FluentWait fluentWait = new FluentWait();
+        fluentWait.sleep(3);*/
     }
 
     @Override

@@ -2,13 +2,13 @@ package com.pel.elements;
 
 import com.pel.foundation.Base;
 import com.pel.utilities.JavaScript;
-import com.pel.utilities.NewWait;
+import com.pel.utilities.FluentWait;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class ButtonsTest extends Base {
     JavaScript javaScript = new JavaScript();
-    NewWait newWait = new NewWait();
+    FluentWait fluentWait = new FluentWait();
 
     @Tag("321")
     @Test

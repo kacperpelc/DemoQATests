@@ -1,13 +1,13 @@
 package com.pel.pages.alertsFrameWindows.modalDialogsPage;
 
 import com.pel.foundation.PageObject;
-import com.pel.utilities.NewWait;
+import com.pel.utilities.FluentWait;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ModalDialogsModal extends PageObject {
-    NewWait newWait = new NewWait();
+    FluentWait fluentWait = new FluentWait();
 
     @FindBy(className = "modal-header")
     private WebElement modalHeader;
@@ -37,13 +37,13 @@ public class ModalDialogsModal extends PageObject {
     }
 
     public ModalDialogsPage closeModalXButton() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, xButton);
+        fluentWait.pollingUntilVisibilityOfElement(1, 15, xButton);
         xButton.click();
         return new ModalDialogsPage();
     }
 
     public ModalDialogsPage closeModalCloseButton() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, closeButton);
+        fluentWait.pollingUntilVisibilityOfElement(1, 15, closeButton);
         closeButton.click();
         return new ModalDialogsPage();
     }

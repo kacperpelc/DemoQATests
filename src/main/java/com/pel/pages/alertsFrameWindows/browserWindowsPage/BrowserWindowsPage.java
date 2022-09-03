@@ -2,14 +2,14 @@ package com.pel.pages.alertsFrameWindows.browserWindowsPage;
 
 import com.pel.foundation.PageObject;
 import com.pel.utilities.JavaScript;
-import com.pel.utilities.NewWait;
+import com.pel.utilities.FluentWait;
 import com.pel.utilities.Tab;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class BrowserWindowsPage extends PageObject {
     JavaScript javaScript = new JavaScript();
-    NewWait newWait = new NewWait();
+    FluentWait fluentWait = new FluentWait();
     Tab tab = new Tab();
     @FindBy(css = "#tabButton")
     private WebElement newTabButton;
@@ -39,7 +39,7 @@ public class BrowserWindowsPage extends PageObject {
     }
 
     private void waitAndClick(WebElement element, int timeout) {
-        newWait.pollingUntilVisibilityOfElement(1, timeout, element);
+        fluentWait.pollingUntilVisibilityOfElement(1, timeout, element);
         element.click();
     }
 

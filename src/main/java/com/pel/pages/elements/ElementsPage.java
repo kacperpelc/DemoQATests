@@ -16,13 +16,13 @@ import com.pel.pages.elements.textBoxPage.TextBoxPage;
 import com.pel.pages.elements.uploadAndDownloadPage.UploadAndDownloadPage;
 import com.pel.pages.elements.webTablesPage.WebTablesPage;
 import com.pel.utilities.JavaScript;
-import com.pel.utilities.NewWait;
+import com.pel.utilities.FluentWait;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ElementsPage extends PageObject {
     JavaScript javaScript = new JavaScript();
-    NewWait newWait = new NewWait();
+    FluentWait fluentWait = new FluentWait();
 
     @FindBy(xpath = "//span[contains(text(), 'Text Box')]//parent::li")
     private WebElement textBox;
@@ -98,7 +98,7 @@ public class ElementsPage extends PageObject {
     }
 
     private void waitScrollClick(WebElement element, int seconds) {
-        newWait.pollingUntilVisibilityOfElement(1, seconds, element);
+        fluentWait.pollingUntilVisibilityOfElement(1, seconds, element);
         javaScript.scrollToElement(element);
         element.click();
     }

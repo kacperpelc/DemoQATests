@@ -2,7 +2,7 @@ package com.pel.pages.alertsFrameWindows.framesPage;
 
 import com.pel.foundation.PageObject;
 import com.pel.pages.alertsFrameWindows.nestedFramesPage.NestedFramesPage;
-import com.pel.utilities.NewWait;
+import com.pel.utilities.FluentWait;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class Frame extends PageObject {
     private final WebDriver driver = getWebDriver();
-    NewWait newWait = new NewWait();
+    FluentWait fluentWait = new FluentWait();
 
     @FindBy(tagName = "h1")
     private WebElement actualText;
@@ -32,13 +32,13 @@ public class Frame extends PageObject {
     }
 
     private void validateIfElementContainsText(WebElement element, String expectedText) {
-        newWait.pollingUntilVisibilityOfElement(1, 15, element);
+        fluentWait.pollingUntilVisibilityOfElement(1, 15, element);
         if(!element.getText().contains(expectedText))
             throw new NoSuchElementException(String.format("expected text: %s, but actual text is: %s", expectedText, element.getText()));
     }
 
     public Frame goToInnerFrame() {
-        newWait.pollingUntilVisibilityOfElement(1, 15, frameInner);
+        fluentWait.pollingUntilVisibilityOfElement(1, 15, frameInner);
         driver.switchTo().frame(frameInner);
         return new Frame();
     }

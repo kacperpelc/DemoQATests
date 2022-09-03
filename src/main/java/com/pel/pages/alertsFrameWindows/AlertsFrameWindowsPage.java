@@ -7,13 +7,13 @@ import com.pel.pages.alertsFrameWindows.framesPage.FramesPage;
 import com.pel.pages.alertsFrameWindows.modalDialogsPage.ModalDialogsPage;
 import com.pel.pages.alertsFrameWindows.nestedFramesPage.NestedFramesPage;
 import com.pel.utilities.JavaScript;
-import com.pel.utilities.NewWait;
+import com.pel.utilities.FluentWait;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AlertsFrameWindowsPage extends PageObject {
     JavaScript javaScript = new JavaScript();
-    NewWait newWait = new NewWait();
+    FluentWait fluentWait = new FluentWait();
 
     @FindBy(xpath = "//span[contains(text(), 'Browser Windows')]//ancestor::li[contains(@class, 'btn')]")
     private WebElement browserWindows;
@@ -56,7 +56,7 @@ public class AlertsFrameWindowsPage extends PageObject {
     }
 
     private void waitScrollClick(WebElement element, int seconds) {
-        newWait.pollingUntilVisibilityOfElement(1, seconds, element);
+        fluentWait.pollingUntilVisibilityOfElement(1, seconds, element);
         javaScript.scrollToElement(element);
         element.click();
     }

@@ -9,14 +9,14 @@ import com.pel.pages.forms.FormsPage;
 import com.pel.pages.interactions.InteractionsPage;
 import com.pel.pages.widgets.WidgetsPage;
 import com.pel.utilities.JavaScript;
-import com.pel.utilities.NewWait;
+import com.pel.utilities.FluentWait;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends PageObject {
     private final String URL = "https://demoqa.com/";
 
-    NewWait newWait = new NewWait();
+    FluentWait fluentWait = new FluentWait();
     JavaScript javaScript = new JavaScript();
 
 
@@ -75,7 +75,7 @@ public class MainPage extends PageObject {
     }
 
     private void waitScrollClick(WebElement element, int seconds) {
-        newWait.pollingUntilVisibilityOfElement(1, seconds, element);
+        fluentWait.pollingUntilVisibilityOfElement(1, seconds, element);
         javaScript.scrollToElement(element);
         element.click();
     }

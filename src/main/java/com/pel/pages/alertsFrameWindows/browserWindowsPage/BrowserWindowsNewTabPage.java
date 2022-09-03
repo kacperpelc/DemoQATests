@@ -2,7 +2,7 @@ package com.pel.pages.alertsFrameWindows.browserWindowsPage;
 
 import com.pel.foundation.PageObject;
 import com.pel.utilities.JavaScript;
-import com.pel.utilities.NewWait;
+import com.pel.utilities.FluentWait;
 import com.pel.utilities.Tab;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class BrowserWindowsNewTabPage extends PageObject {
     JavaScript javaScript = new JavaScript();
-    NewWait newWait = new NewWait();
+    FluentWait fluentWait = new FluentWait();
     Tab tab = new Tab();
 
     @FindBy(css = "#sampleHeading")
@@ -21,7 +21,7 @@ public class BrowserWindowsNewTabPage extends PageObject {
     private WebElement actualTextBody;
 
     public BrowserWindowsNewTabPage validateIfElementContainsText(String expectedText) {
-        newWait.pollingUntilVisibilityOfElement(1, 15, actualText);
+        fluentWait.pollingUntilVisibilityOfElement(1, 15, actualText);
         if(!actualText.getText().contains(expectedText))
             throw new NoSuchElementException(String.format("expected text: %s, but actual text is: %s", expectedText, actualText.getText()));
         return new BrowserWindowsNewTabPage();
@@ -30,7 +30,7 @@ public class BrowserWindowsNewTabPage extends PageObject {
     public BrowserWindowsNewTabPage validateIfElementWithMessageContainsText(String expectedText) {
         //TODO make it work
 /*
-        newWait.pollingUntilVisibilityOfElement(1, 15, actualTextBody);
+        fluentWait.pollingUntilVisibilityOfElement(1, 15, actualTextBody);
         if(!actualTextBody.getText().contains(expectedText))
             throw new NoSuchElementException(String.format("expected text: %s, but actual text is: %s", expectedText, actualTextBody.getText()));
 */
