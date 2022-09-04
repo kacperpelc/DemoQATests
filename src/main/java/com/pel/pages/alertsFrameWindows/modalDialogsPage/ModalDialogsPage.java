@@ -1,7 +1,6 @@
 package com.pel.pages.alertsFrameWindows.modalDialogsPage;
 
 import com.pel.foundation.PageObject;
-import com.pel.utilities.JavaScript;
 import com.pel.utilities.FluentWait;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,15 +16,15 @@ public class ModalDialogsPage extends PageObject {
     @FindBy(id = "showLargeModal")
     private WebElement largeModalButton;
 
-    public ModalDialogsModal clickSmallModalButton() {
+    public Modal clickSmallModalButton() {
         fluentWait.pollingUntilVisibilityOfElement(1, 15, smallModalButton);
         smallModalButton.click();
-        return new ModalDialogsModal();
+        return new Modal();
     }
 
-    public ModalDialogsModal clickLargeModalButton() {
+    public Modal clickLargeModalButton() {
         fluentWait.pollingUntilVisibilityOfElement(1, 15, largeModalButton);
         largeModalButton.click();
-        return new ModalDialogsModal();
+        return new Modal();
     }
 }

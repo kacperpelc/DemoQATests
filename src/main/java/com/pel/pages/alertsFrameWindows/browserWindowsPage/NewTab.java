@@ -1,15 +1,15 @@
 package com.pel.pages.alertsFrameWindows.browserWindowsPage;
 
 import com.pel.foundation.PageObject;
+import com.pel.utilities.Check;
 import com.pel.utilities.JavaScript;
 import com.pel.utilities.FluentWait;
 import com.pel.utilities.Tab;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class BrowserWindowsNewTabPage extends PageObject {
+public class NewTab extends PageObject {
+    Check check = new Check();
     JavaScript javaScript = new JavaScript();
     FluentWait fluentWait = new FluentWait();
     Tab tab = new Tab();
@@ -17,24 +17,21 @@ public class BrowserWindowsNewTabPage extends PageObject {
     @FindBy(css = "#sampleHeading")
     private WebElement actualText;
 
-    @FindBy(xpath = "//body/text()")
+    @FindBy(xpath = "//body")
     private WebElement actualTextBody;
 
-    public BrowserWindowsNewTabPage validateIfElementContainsText(String expectedText) {
+    public NewTab validateIfElementContainsText(String expectedText) {
         fluentWait.pollingUntilVisibilityOfElement(1, 15, actualText);
-        if(!actualText.getText().contains(expectedText))
-            throw new NoSuchElementException(String.format("expected text: %s, but actual text is: %s", expectedText, actualText.getText()));
-        return new BrowserWindowsNewTabPage();
+        check.checkIfElementContainsText(actualText, expectedText);
+        return new NewTab();
     }
 
-    public BrowserWindowsNewTabPage validateIfElementWithMessageContainsText(String expectedText) {
+    public NewTab validateIfElementWithMessageContainsText(String expectedText) {
         //TODO make it work
-/*
         fluentWait.pollingUntilVisibilityOfElement(1, 15, actualTextBody);
-        if(!actualTextBody.getText().contains(expectedText))
-            throw new NoSuchElementException(String.format("expected text: %s, but actual text is: %s", expectedText, actualTextBody.getText()));
-*/
-        return new BrowserWindowsNewTabPage();
+        check.checkIfElementContainsText(actualTextBody, expectedText);
+        fluentWait.sleep(2);
+        return new NewTab();
     }
 
     public BrowserWindowsPage closeTabAndGoBackToBrowserWindowsPage() {

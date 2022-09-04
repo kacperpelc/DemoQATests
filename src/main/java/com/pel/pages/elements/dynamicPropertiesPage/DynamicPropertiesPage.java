@@ -1,13 +1,14 @@
 package com.pel.pages.elements.dynamicPropertiesPage;
 
 import com.pel.foundation.PageObject;
+import com.pel.utilities.Check;
 import com.pel.utilities.FluentWait;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class DynamicPropertiesPage extends PageObject {
+    Check check = new Check();
     FluentWait fluentWait = new FluentWait();
     @FindBy(id = "enableAfter")
     private WebElement enableAfterButton;
@@ -20,24 +21,20 @@ public class DynamicPropertiesPage extends PageObject {
 
     public DynamicPropertiesPage checkIfEnabledAfterButtonIsEnabled() {
         fluentWait.pollingUntilVisibilityOfElement(1, 15, enableAfterButton);
-        fluentWait.pollingUntilAttributeTotBeEmpty(1, 15, enableAfterButton, "disabled");
-        if(!enableAfterButton.isEnabled())
-            throw new NoSuchElementException("expected: enabled, actual: disabled");
+        fluentWait.pollingUntilAttributeToBeEmpty(1, 15, enableAfterButton, "disabled");
+        check.checkIfElementIsEnabled(enableAfterButton);
         return new DynamicPropertiesPage();
     }
 
     public DynamicPropertiesPage checkIfElementChangedColor(String color) {
         fluentWait.pollingUntilVisibilityOfElement(1, 15, colorChangeButton);
-        fluentWait.pollingUntilAttributeToBe(1, 15, colorChangeButton, "color", color);
-        if(colorChangeButton.getAttribute("color").equals(color))
-            throw new NoSuchElementException("expected: red, actual: " + colorChangeButton.getAttribute("color"));
+        fluentWait.pollingUntilAttributeToNotBeEmpty(1, 15, colorChangeButton, "color");
+        check.checkIfElementHasCssValue(colorChangeButton, "color", color);
         return new DynamicPropertiesPage();
     }
 
     public DynamicPropertiesPage checkIfVisibleAfterButtonIsVisible() {
         fluentWait.pollingUntilVisibilityOfElement(1, 15, visibleAfterButton);
-        if(!visibleAfterButton.isDisplayed())
-            throw new NoSuchElementException(String.format("expected: %s, but actual is not displayed"));
         return new DynamicPropertiesPage();
     }
 }

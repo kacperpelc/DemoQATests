@@ -1,12 +1,14 @@
 package com.pel.pages.alertsFrameWindows.modalDialogsPage;
 
 import com.pel.foundation.PageObject;
+import com.pel.utilities.Check;
 import com.pel.utilities.FluentWait;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ModalDialogsModal extends PageObject {
+public class Modal extends PageObject {
+    Check check = new Check();
     FluentWait fluentWait = new FluentWait();
 
     @FindBy(className = "modal-header")
@@ -21,19 +23,18 @@ public class ModalDialogsModal extends PageObject {
     @FindBy(xpath = "//div[@class='modal-content']//button[@class='close']")
     private WebElement xButton;
 
-    public ModalDialogsModal checkIfHeaderContainsText(String expectedText) {
+    public Modal checkIfHeaderContainsText(String expectedText) {
         checkIfElementContainsText(modalHeader, expectedText);
-        return new ModalDialogsModal();
+        return new Modal();
     }
 
-    public ModalDialogsModal checkIfBodyContainsText(String expectedText) {
+    public Modal checkIfBodyContainsText(String expectedText) {
         checkIfElementContainsText(modalBody, expectedText);
-        return new ModalDialogsModal();
+        return new Modal();
     }
 
     private void checkIfElementContainsText(WebElement element, String expectedText) {
-        if(!element.getText().contains(expectedText))
-            throw new NoSuchElementException(String.format("expected text: %s, but actual text is: %s", expectedText, element.getText()));
+        check.checkIfElementContainsText(element, expectedText);
     }
 
     public ModalDialogsPage closeModalXButton() {

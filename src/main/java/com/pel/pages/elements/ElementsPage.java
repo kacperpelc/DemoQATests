@@ -1,17 +1,12 @@
 package com.pel.pages.elements;
 
 import com.pel.foundation.PageObject;
-import com.pel.pages.alertsFrameWindows.alertsPage.AlertsPage;
-import com.pel.pages.alertsFrameWindows.browserWindowsPage.BrowserWindowsPage;
-import com.pel.pages.alertsFrameWindows.framesPage.FramesPage;
-import com.pel.pages.alertsFrameWindows.modalDialogsPage.ModalDialogsPage;
-import com.pel.pages.alertsFrameWindows.nestedFramesPage.NestedFramesPage;
 import com.pel.pages.elements.brokenLinksImagesPage.BrokenLinksImagesPage;
 import com.pel.pages.elements.buttonsPage.ButtonsPage;
 import com.pel.pages.elements.checkBoxPage.CheckBoxPage;
 import com.pel.pages.elements.dynamicPropertiesPage.DynamicPropertiesPage;
 import com.pel.pages.elements.linksPage.LinksPage;
-import com.pel.pages.elements.radioButtonPage.RadioButtonPagePage;
+import com.pel.pages.elements.radioButtonPage.RadioButtonPage;
 import com.pel.pages.elements.textBoxPage.TextBoxPage;
 import com.pel.pages.elements.uploadAndDownloadPage.UploadAndDownloadPage;
 import com.pel.pages.elements.webTablesPage.WebTablesPage;
@@ -62,9 +57,9 @@ public class ElementsPage extends PageObject {
         return new CheckBoxPage();
     }
 
-    public RadioButtonPagePage clickRadioButton() {
+    public RadioButtonPage clickRadioButton() {
         waitScrollClick(radioButton, 15);
-        return new RadioButtonPagePage();
+        return new RadioButtonPage();
     }
 
     public WebTablesPage clickWebTables() {

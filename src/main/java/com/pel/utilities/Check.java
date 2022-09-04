@@ -13,4 +13,31 @@ public class Check {
         if(!element.getText().equals(expectedText))
             throw new NoSuchElementException(String.format("expected text: %s, but actual text is: %s", expectedText, element.getText()));
     }
+
+    public void checkIfActualTextEqualsText(String actualText, String expectedText) {
+        if(!actualText.equals(expectedText))
+            throw new NoSuchElementException(String.format("expected text: %s, but actual text is: %s", expectedText, actualText));
+    }
+
+    public void checkIfElementHasCssValue(WebElement element, String cssProperty, String expectedCssValue) {
+        if(!element.getCssValue(cssProperty).contains(expectedCssValue))
+            throw new NoSuchElementException(String.format("css property: %s; expected : %s, but actual is: %s",
+                    cssProperty, expectedCssValue, element.getCssValue(cssProperty)));
+    }
+
+    public void checkIfElementAttributeContainsValue(WebElement element, String attribute, String value) {
+        if(!element.getAttribute(attribute).contains(value))
+            throw new NoSuchElementException(String.format("attribute: %s; expected : %s, but actual is: %s",
+                   attribute, value, element.getAttribute(attribute)));
+    }
+
+    public void checkIfElementIsEnabled(WebElement element) {
+        if(!element.isEnabled())
+            throw new NoSuchElementException("expected: disabled, actual: enabled");
+    }
+
+    public void checkIfElementIsDisabled(WebElement element) {
+        if(element.isEnabled())
+            throw new NoSuchElementException("expected: enabled, actual: disabled");
+    }
 }

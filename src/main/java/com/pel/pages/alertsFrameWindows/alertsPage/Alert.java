@@ -2,15 +2,17 @@ package com.pel.pages.alertsFrameWindows.alertsPage;
 
 import com.pel.foundation.PageObject;
 import com.pel.foundation.WebDriverPool;
+import com.pel.utilities.Check;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
-public class AlertsAlert extends PageObject {
+public class Alert extends PageObject {
+    Check check = new Check();
     private final WebDriver driver = WebDriverPool.getWebDriver();
-    public AlertsAlert checkIfAlertTextEquals(String text) {
-        if(!getAlertText().equals(text))
-            throw new NoSuchElementException(String.format("Expected: %s, Actual: %s", text, getAlertText()));
-        return new AlertsAlert();
+
+    public Alert checkIfAlertTextEquals(String text) {
+        check.checkIfActualTextEqualsText(getAlertText(), text);
+        return new Alert();
     }
 
     private String getAlertText() {
@@ -27,8 +29,8 @@ public class AlertsAlert extends PageObject {
         return new AlertsPage();
     }
 
-    public AlertsAlert sendKeysAlert(String keys) {
+    public Alert sendKeysAlert(String keys) {
         driver.switchTo().alert().sendKeys(keys);
-        return new AlertsAlert();
+        return new Alert();
     }
 }

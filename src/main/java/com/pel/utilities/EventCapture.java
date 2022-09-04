@@ -230,12 +230,10 @@ public class EventCapture implements WebDriverListener {
 
     @Override
     public void beforeFindElement(WebElement element, By locator) {
-        System.out.println("before");
     }
 
     @Override
     public void afterFindElement(WebElement element, By locator, WebElement result) {
-        System.out.println("after");
     }
 
     @Override

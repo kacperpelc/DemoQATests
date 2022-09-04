@@ -6,7 +6,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
 
@@ -23,7 +22,7 @@ public class FluentWait {
     }
 
     public void pollingUntilVisibilityOfElement(int seconds, int timeout, WebElement element) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -31,7 +30,7 @@ public class FluentWait {
     }
 
     public void pollingUntilVisibilityOfElement(int seconds, int timeout, By locator) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -39,7 +38,7 @@ public class FluentWait {
     }
 
     public void pollingUntilInvisibilityOfElement(int seconds, int timeout, WebElement element) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -47,7 +46,7 @@ public class FluentWait {
     }
 
     public void pollingUntilInvisibilityOfElement(int seconds, int timeout, By locator) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -55,7 +54,7 @@ public class FluentWait {
     }
 
     public void pollingUntilInvisibilityOfElementWithText(int seconds, int timeout, By locator, String text) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -63,7 +62,7 @@ public class FluentWait {
     }
 
     public void pollingUntilElementBeingClickable(int seconds, int timeout, WebElement element) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -71,7 +70,7 @@ public class FluentWait {
     }
 
     public void pollingUntilElementBeingClickable(int seconds, int timeout, By locator) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -79,22 +78,22 @@ public class FluentWait {
     }
 
     public void pollingUntilVisibilityOfAlert(int seconds, int timeout) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.alertIsPresent());
     }
 
     public void pollingUntilAttributeToNotBeEmpty(int seconds, int timeout, WebElement element, String attribute) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
         wait.until(ExpectedConditions.attributeToBeNotEmpty(element, attribute));
     }
 
-    public void pollingUntilAttributeTotBeEmpty(int seconds, int timeout, WebElement element, String attribute) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+    public void pollingUntilAttributeToBeEmpty(int seconds, int timeout, WebElement element, String attribute) {
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -102,7 +101,7 @@ public class FluentWait {
     }
 
     public void pollingUntilAttributeContains(int seconds, int timeout, WebElement element, String attribute, String value) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -110,7 +109,7 @@ public class FluentWait {
     }
 
     public void pollingUntilAttributeNotContains(int seconds, int timeout, WebElement element, String attribute, String value) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -118,7 +117,7 @@ public class FluentWait {
     }
 
     public void pollingUntilAttributeToBe(int seconds, int timeout, WebElement element, String attribute, String value) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
@@ -126,7 +125,7 @@ public class FluentWait {
     }
 
     public void pollingUntilAttributeNotToBe(int seconds, int timeout, WebElement element, String attribute, String value) {
-        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+        org.openqa.selenium.support.ui.FluentWait<WebDriver> wait = new org.openqa.selenium.support.ui.FluentWait<>(driver)
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);

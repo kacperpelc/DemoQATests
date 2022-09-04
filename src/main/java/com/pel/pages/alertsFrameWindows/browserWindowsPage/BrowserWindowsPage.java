@@ -1,9 +1,11 @@
 package com.pel.pages.alertsFrameWindows.browserWindowsPage;
 
 import com.pel.foundation.PageObject;
+import com.pel.foundation.WebDriverPool;
 import com.pel.utilities.JavaScript;
 import com.pel.utilities.FluentWait;
 import com.pel.utilities.Tab;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -11,6 +13,7 @@ public class BrowserWindowsPage extends PageObject {
     JavaScript javaScript = new JavaScript();
     FluentWait fluentWait = new FluentWait();
     Tab tab = new Tab();
+    private final WebDriver driver = WebDriverPool.getWebDriver();
     @FindBy(css = "#tabButton")
     private WebElement newTabButton;
 
@@ -20,22 +23,22 @@ public class BrowserWindowsPage extends PageObject {
     @FindBy(css = "#messageWindowButton")
     private WebElement newWindowMessageButton;
 
-    public BrowserWindowsNewTabPage openNewTab() {
+    public NewTab openNewTab() {
         waitAndClick(newTabButton, 15);
         tab.switchToTab(2);
-        return new BrowserWindowsNewTabPage();
+        return new NewTab();
     }
 
-    public BrowserWindowsNewTabPage openNewWindow() {
+    public NewTab openNewWindow() {
         waitAndClick(newWindowButton, 15);
         tab.switchToTab(2);
-        return new BrowserWindowsNewTabPage();
+        return new NewTab();
     }
 
-    public BrowserWindowsNewTabPage openNewWindowWithMessage() {
+    public NewTab openNewWindowWithMessage() {
         waitAndClick(newWindowMessageButton, 15);
         tab.switchToTab(2);
-        return new BrowserWindowsNewTabPage();
+        return new NewTab();
     }
 
     private void waitAndClick(WebElement element, int timeout) {

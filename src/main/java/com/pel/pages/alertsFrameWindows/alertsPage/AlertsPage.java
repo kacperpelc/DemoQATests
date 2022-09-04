@@ -2,6 +2,7 @@ package com.pel.pages.alertsFrameWindows.alertsPage;
 
 import com.pel.foundation.PageObject;
 import com.pel.foundation.WebDriverPool;
+import com.pel.utilities.Check;
 import com.pel.utilities.JavaScript;
 import com.pel.utilities.FluentWait;
 import org.openqa.selenium.NoSuchElementException;
@@ -10,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AlertsPage extends PageObject {
+    Check check = new Check();
     JavaScript javaScript = new JavaScript();
     FluentWait fluentWait = new FluentWait();
 
@@ -33,24 +35,24 @@ public class AlertsPage extends PageObject {
     @FindBy(id = "promptResult")
     private WebElement promptBoxMessage;
 
-    public AlertsAlert clickToSeeAlert() {
+    public Alert clickToSeeAlert() {
         waitScrollClickWaitForAlert(buttonAlert, 15);
-        return new AlertsAlert();
+        return new Alert();
     }
 
-    public AlertsAlert clickToSeeAlertAfter5Seconds() {
+    public Alert clickToSeeAlertAfter5Seconds() {
         waitScrollClickWaitForAlert(buttonAlertAfter5Seconds, 15);
-        return new AlertsAlert();
+        return new Alert();
     }
 
-    public AlertsAlert clickToSeeConfirmBox() {
+    public Alert clickToSeeConfirmBox() {
         waitScrollClickWaitForAlert(buttonConfirmBox, 15);
-        return new AlertsAlert();
+        return new Alert();
     }
 
-    public AlertsAlert clickToSeePromptBox() {
+    public Alert clickToSeePromptBox() {
         waitScrollClickWaitForAlert(buttonPromptBox, 15);
-        return new AlertsAlert();
+        return new Alert();
     }
 
     private void waitScrollClickWaitForAlert(WebElement element, int seconds) {
@@ -62,15 +64,13 @@ public class AlertsPage extends PageObject {
 
     public AlertsPage checkIfMessageAfterConfirmBoxEquals(String message) {
         fluentWait.pollingUntilVisibilityOfElement(1, 15, confirmBoxMessage);
-        if(!confirmBoxMessage.getText().equals(message))
-            throw new NoSuchElementException(String.format("Expected: %s, Actual: %s", confirmBoxMessage.getText(), message));
+        check.checkIfElementEqualsText(confirmBoxMessage, message);
         return new AlertsPage();
     }
 
     public AlertsPage checkIfMessageAfterPromptBoxEquals(String message) {
         fluentWait.pollingUntilVisibilityOfElement(1, 15, promptBoxMessage);
-        if(!promptBoxMessage.getText().equals(message))
-            throw new NoSuchElementException(String.format("Expected: %s, Actual: %s", promptBoxMessage.getText(), message));
+        check.checkIfElementEqualsText(promptBoxMessage, message);
         return new AlertsPage();
     }
 }
