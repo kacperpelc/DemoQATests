@@ -2,7 +2,7 @@ package com.pel.pages.elements.buttonsPage;
 
 import com.pel.foundation.PageObject;
 import com.pel.utilities.Check;
-import com.pel.utilities.Click;
+import com.pel.utilities.Mouse;
 import com.pel.utilities.JavaScript;
 import com.pel.utilities.FluentWait;
 import org.openqa.selenium.WebElement;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class ButtonsPage extends PageObject {
     Check check = new Check();
-    Click click = new Click();
+    Mouse mouse = new Mouse();
     JavaScript javaScript = new JavaScript();
     FluentWait fluentWait = new FluentWait();
 
@@ -40,13 +40,13 @@ public class ButtonsPage extends PageObject {
 
     public ButtonsPage rightClickOnRightClickMeButton() {
         waitAndScroll(rightClickButton, 15);
-        click.rightClick(rightClickButton);
+        mouse.rightClick(rightClickButton);
         return new ButtonsPage();
     }
 
     public ButtonsPage doubleClickOnDoubleClickMeButton() {
         waitAndScroll(doubleClickButton, 15);
-        click.doubleClick(doubleClickButton);
+        mouse.doubleClick(doubleClickButton);
         return new ButtonsPage();
     }
 

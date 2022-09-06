@@ -2,14 +2,13 @@ package com.pel.pages.elements.radioButtonPage;
 
 import com.pel.foundation.PageObject;
 import com.pel.utilities.Check;
-import com.pel.utilities.Click;
+import com.pel.utilities.Mouse;
 import com.pel.utilities.FluentWait;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RadioButtonPage extends PageObject {
-    Click click = new Click();
+    Mouse mouse = new Mouse();
     FluentWait fluentWait = new FluentWait();
     Check check = new Check();
 
