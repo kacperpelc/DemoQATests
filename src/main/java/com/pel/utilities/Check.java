@@ -3,6 +3,8 @@ package com.pel.utilities;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class Check {
     public void checkIfElementContainsText(WebElement element, String expectedText) {
         if(!element.getText().contains(expectedText))
@@ -39,5 +41,10 @@ public class Check {
     public void checkIfElementIsDisabled(WebElement element) {
         if(element.isEnabled())
             throw new NoSuchElementException("expected: enabled, actual: disabled");
+    }
+
+    public void checkIfListsAreEqual(List<String> actualResults, List<String> expectedResults) {
+        if(!expectedResults.equals(actualResults))
+            throw new NoSuchElementException(String.format("expected: %s, actual: %s", expectedResults, actualResults));
     }
 }

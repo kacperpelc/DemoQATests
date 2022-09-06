@@ -1,6 +1,7 @@
 package com.pel.pages.alertsFrameWindows.browserWindowsPage;
 
 import com.pel.foundation.PageObject;
+import com.pel.pages.elements.linksPage.LinksPage;
 import com.pel.utilities.Check;
 import com.pel.utilities.JavaScript;
 import com.pel.utilities.FluentWait;
@@ -38,5 +39,11 @@ public class NewTab extends PageObject {
         tab.closeTab();
         tab.switchToTab(1);
         return new BrowserWindowsPage();
+    }
+
+    public LinksPage closeTabAndGoBackToLinksPage() {
+        tab.closeTab();
+        tab.switchToTab(1);
+        return new LinksPage();
     }
 }
