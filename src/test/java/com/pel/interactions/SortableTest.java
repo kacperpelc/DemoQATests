@@ -37,7 +37,7 @@ public class SortableTest extends Base {
                 .clickInteractions()
                 .clickSortable()
                 .clickGridTab()
-                .checkIfGridsEquals(listExpectedAscending)
+                .checkIfGridEquals(listExpectedAscending)
                 .dragAndDropGrid("One", "Nine")
                 .dragAndDropGrid("Two", "Nine")
                 .dragAndDropGrid("Three", "Nine")
@@ -46,6 +46,6 @@ public class SortableTest extends Base {
                 .dragAndDropGrid("Six", "Nine")
                 .dragAndDropGrid("Seven", "Nine")
                 .dragAndDropGrid("Eight", "Nine")
-                .checkIfGridsEquals(listExpectedDescending);
+                .checkIfGridEquals(listExpectedDescending);
     }
 }

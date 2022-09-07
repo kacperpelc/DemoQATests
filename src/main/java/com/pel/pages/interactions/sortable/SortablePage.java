@@ -78,7 +78,7 @@ public class SortablePage extends PageObject {
         return new SortablePage();
     }
 
-    public SortablePage checkIfGridsEquals(List<String> listExcepted) {
+    public SortablePage checkIfGridEquals(List<String> listExcepted) {
         check.checkIfListsAreEqual(getList(elementsGrid), listExcepted);
         return new SortablePage();
     }
