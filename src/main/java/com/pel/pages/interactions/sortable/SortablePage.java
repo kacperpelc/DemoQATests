@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SortablePage extends PageObject {
-    private final WebDriver driver = WebDriverPool.getWebDriver();
+    private final WebDriver driver = WebDriverPool.get();
     Check check = new Check();
     FluentWait fluentWait = new FluentWait();
     JavaScript javaScript = new JavaScript();

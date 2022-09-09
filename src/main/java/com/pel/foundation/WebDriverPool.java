@@ -6,21 +6,28 @@ import org.apache.log4j.BasicConfigurator;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.events.WebDriverListener;
+
+import javax.swing.text.html.Option;
 
 public class WebDriverPool {
     static WebDriver driver;
     static WebDriver driverDecorated;
 
-    public static WebDriver getWebDriver(String driverName) {
-        switch(driverName.toLowerCase()) {
+    public static WebDriver getWebDriver() {
+        switch(OptionsCollector.getBrowserName().toLowerCase()) {
             case "chrome":
                 driver = getChromeDriver();
                 break;
             case "firefox":
                 driver = getFirefoxDriver();
+                break;
+            case "edge":
+                driver = getEdgeDriver();
                 break;
             default:
                 throw new NoSuchElementException("Wrong WebDriver name");
@@ -33,7 +40,7 @@ public class WebDriverPool {
         return driverDecorated;
     }
 
-    public static WebDriver getWebDriver() {
+    public static WebDriver get() {
         return driverDecorated;
     }
 
@@ -44,7 +51,14 @@ public class WebDriverPool {
 
     private static WebDriver getFirefoxDriver() {    // TODO make it work
         WebDriverManager.firefoxdriver().setup();
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+
         return new FirefoxDriver();
+    }
+
+    private static WebDriver getEdgeDriver() {
+        WebDriverManager.edgedriver().setup();
+        return new EdgeDriver();
     }
 }
 

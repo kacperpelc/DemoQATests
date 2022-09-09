@@ -40,7 +40,7 @@ public class MainPage extends PageObject {
     private WebElement bookStore;
 
     public MainPage openDemoQA() {
-        WebDriverPool.getWebDriver("chrome").get(URL);
+        WebDriverPool.getWebDriver().get(URL);
         return new MainPage();
     }
 

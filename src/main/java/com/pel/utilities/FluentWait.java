@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.time.Duration;
 
 public class FluentWait {
-    private WebDriver driver = WebDriverPool.getWebDriver();
+    private final WebDriver driver = WebDriverPool.get();
 
     FluentWait wait;
 
@@ -34,7 +34,7 @@ public class FluentWait {
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
-        wait.until(ExpectedConditions.visibilityOf(WebDriverPool.getWebDriver().findElement(locator)));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
     }
 
     public void pollingUntilInvisibilityOfElement(int seconds, int timeout, WebElement element) {
@@ -50,7 +50,7 @@ public class FluentWait {
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
-        wait.until(ExpectedConditions.invisibilityOf(WebDriverPool.getWebDriver().findElement(locator)));
+        wait.until(ExpectedConditions.invisibilityOf(driver.findElement(locator)));
     }
 
     public void pollingUntilInvisibilityOfElementWithText(int seconds, int timeout, By locator, String text) {
@@ -74,7 +74,7 @@ public class FluentWait {
                 .pollingEvery(Duration.ofSeconds(seconds))
                 .withTimeout(Duration.ofSeconds(timeout))
                 .ignoring(NoSuchElementException.class);
-        wait.until(ExpectedConditions.elementToBeClickable(WebDriverPool.getWebDriver().findElement(locator)));
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(locator)));
     }
 
     public void pollingUntilVisibilityOfAlert(int seconds, int timeout) {

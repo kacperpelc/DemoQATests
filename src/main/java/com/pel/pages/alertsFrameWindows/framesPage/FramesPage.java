@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class FramesPage extends PageObject {
-    private final WebDriver driver = getWebDriver();
+    private final WebDriver driver = get();
     JavaScript javaScript = new JavaScript();
     FluentWait fluentWait = new FluentWait();
 

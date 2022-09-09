@@ -13,7 +13,7 @@ public class BrowserWindowsPage extends PageObject {
     JavaScript javaScript = new JavaScript();
     FluentWait fluentWait = new FluentWait();
     Tab tab = new Tab();
-    private final WebDriver driver = WebDriverPool.getWebDriver();
+    private final WebDriver driver = WebDriverPool.get();
     @FindBy(css = "#tabButton")
     private WebElement newTabButton;
 

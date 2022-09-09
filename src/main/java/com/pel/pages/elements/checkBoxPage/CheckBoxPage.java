@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CheckBoxPage extends PageObject {
-    WebDriver driver = WebDriverPool.getWebDriver();
+    private final WebDriver driver = WebDriverPool.get();
     Check check = new Check();
     FluentWait fluentWait = new FluentWait();
     JavaScript javaScript = new JavaScript();

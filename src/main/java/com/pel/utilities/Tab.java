@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Tab {
-    private WebDriver driver = WebDriverPool.getWebDriver();
+    private WebDriver driver = WebDriverPool.get();
     private JavaScript javaScript = new JavaScript();
 
     private final HashMap<Integer, String> tabs = new HashMap<>();

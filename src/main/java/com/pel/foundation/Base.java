@@ -4,7 +4,6 @@ import com.pel.pages.MainPage;
 import com.pel.utilities.Constants;
 import com.pel.utilities.Screenshot;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 public class Base {
@@ -13,11 +12,11 @@ public class Base {
     }
 
     @RegisterExtension
-    Screenshot watcher = new Screenshot(WebDriverPool.getWebDriver(), Constants.SCREENSHOTS);
+    Screenshot watcher = new Screenshot(WebDriverPool.get(), Constants.SCREENSHOTS);
 
 
     @AfterAll
     public static void quit() {
-        WebDriverPool.getWebDriver().quit();
+        WebDriverPool.get().quit();
     }
 }

@@ -1,16 +1,7 @@
 package com.pel.pages.interactions;
 
 import com.pel.foundation.PageObject;
-import com.pel.pages.elements.brokenLinksImagesPage.BrokenLinksImagesPage;
-import com.pel.pages.elements.buttonsPage.ButtonsPage;
-import com.pel.pages.elements.checkBoxPage.CheckBoxPage;
-import com.pel.pages.elements.dynamicPropertiesPage.DynamicPropertiesPage;
-import com.pel.pages.elements.linksPage.LinksPage;
-import com.pel.pages.elements.radioButtonPage.RadioButtonPage;
-import com.pel.pages.elements.textBoxPage.TextBoxPage;
-import com.pel.pages.elements.uploadAndDownloadPage.UploadAndDownloadPage;
-import com.pel.pages.elements.webTablesPage.WebTablesPage;
-import com.pel.pages.interactions.dragabble.DraggablePage;
+import com.pel.pages.interactions.draggable.DraggablePage;
 import com.pel.pages.interactions.droppable.DroppablePage;
 import com.pel.pages.interactions.resizable.ResizablePage;
 import com.pel.pages.interactions.selectable.SelectablePage;

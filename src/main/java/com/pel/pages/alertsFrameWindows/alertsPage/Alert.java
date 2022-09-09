@@ -3,12 +3,11 @@ package com.pel.pages.alertsFrameWindows.alertsPage;
 import com.pel.foundation.PageObject;
 import com.pel.foundation.WebDriverPool;
 import com.pel.utilities.Check;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 public class Alert extends PageObject {
     Check check = new Check();
-    private final WebDriver driver = WebDriverPool.getWebDriver();
+    private final WebDriver driver = WebDriverPool.get();
 
     public Alert checkIfAlertTextEquals(String text) {
         check.checkIfActualTextEqualsText(getAlertText(), text);

@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ModalDialogsPage extends PageObject {
-    private final WebDriver driver = getWebDriver();
+    private final WebDriver driver = get();
     FluentWait fluentWait = new FluentWait();
 
     @FindBy(id = "showSmallModal")

@@ -5,7 +5,6 @@ import com.pel.foundation.WebDriverPool;
 import com.pel.utilities.Check;
 import com.pel.utilities.JavaScript;
 import com.pel.utilities.FluentWait;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,7 +14,7 @@ public class AlertsPage extends PageObject {
     JavaScript javaScript = new JavaScript();
     FluentWait fluentWait = new FluentWait();
 
-    private final WebDriver driver = WebDriverPool.getWebDriver();
+    private final WebDriver driver = WebDriverPool.get();
 
     @FindBy(id = "alertButton")
     private WebElement buttonAlert;

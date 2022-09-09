@@ -4,13 +4,12 @@ import com.pel.foundation.PageObject;
 import com.pel.pages.alertsFrameWindows.nestedFramesPage.NestedFramesPage;
 import com.pel.utilities.Check;
 import com.pel.utilities.FluentWait;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class Frame extends PageObject {
-    private final WebDriver driver = getWebDriver();
+    private final WebDriver driver = get();
     Check check = new Check();
     FluentWait fluentWait = new FluentWait();
 

@@ -1,4 +1,4 @@
-package com.pel.pages.interactions.dragabble;
+package com.pel.pages.interactions.draggable;
 
 import com.pel.foundation.PageObject;
 
