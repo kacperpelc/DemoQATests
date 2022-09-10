@@ -73,6 +73,9 @@
                 <version>2.22.2</version>
                 <configuration>
                     <trimStackTrace>false</trimStackTrace>
+                    <systemPropertyVariables>
+                        <browser.name>${browser.name}</browser.name>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
@@ -82,14 +85,14 @@
         </plugins>
     </build>
 
-    <!--<profiles>
+    <profiles>
         <profile>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <id>chrome</id>
             <properties>
-                <browser>chrome</browser>
+                <browser.name>chrome</browser.name>
             </properties>
         </profile>
         <profile>
@@ -98,10 +101,10 @@
             </activation>
             <id>edge</id>
             <properties>
-                <browser>edge</browser>
+                <browser.name>edge</browser.name>
             </properties>
         </profile>
-    </profiles>-->
+    </profiles>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

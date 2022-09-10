@@ -17,12 +17,12 @@
 > mvn clean test
 
 ## To run single test:
-> mvn clean test -D"browser=name" -D"groups=number"
+> mvn clean test -P browser -D"groups=number"
 
 where:
 - name stands for browser's name, currently supported: **chrome** and **edge**
 - number stands for **@Tag()**, for example:
-> mvn clean test -D"browser=chrome" -D"groups="111"
+> mvn clean test -P chrome -D"groups="111"
 
 ## By default:
 - chromedriver
@@ -31,11 +31,11 @@ where:
 
 ## TODO:
 - implement firefoxDriver
-- implement profiles in maven
 - implement headless test run
 - implement to choose close browser or not
 - implement selenium grid 4
 - implement screenshot making after test fail
+- improve profiles in maven
 - improve logs
 
 

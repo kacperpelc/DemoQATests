@@ -40,6 +40,11 @@ public class MainPage extends PageObject {
     private WebElement bookStore;
 
     public MainPage openDemoQA() {
+        WebDriverPool.getWebDriverDecorated().get(URL);
+        return new MainPage();
+    }
+
+    public MainPage openDemoQAWithoutDecoration() {
         WebDriverPool.getWebDriver().get(URL);
         return new MainPage();
     }

@@ -32,7 +32,12 @@ public class WebDriverPool {
             default:
                 throw new NoSuchElementException("Wrong WebDriver name");
         }
+        driverDecorated = driver;
+        driverDecorated.manage().window().maximize();
+        return driverDecorated;
+    }
 
+    public static WebDriver getWebDriverDecorated() {
         WebDriverListener listener = new EventCapture();
         driverDecorated = new EventFiringDecorator(listener).decorate(driver);
         BasicConfigurator.configure();
