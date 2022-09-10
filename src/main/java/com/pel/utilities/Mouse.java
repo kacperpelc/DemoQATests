@@ -23,7 +23,7 @@ public class Mouse {
         actions.dragAndDrop(source, target).build().perform();
     }
 
-    public void dragAndDrop(WebElement source, int xOffset, int yOffset) {
+    public void dragAndDrop(WebElement source, int xOffset, int yOffset) {  // x+ right, y+ down
         Actions actions = new Actions(driver);
         actions.dragAndDropBy(source, xOffset, yOffset).build().perform();
     }
