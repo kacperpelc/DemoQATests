@@ -20,14 +20,15 @@
 > mvn clean test -P browser -P close -P headless -D"groups=number"
 
 where:
-- close stands for close browser after each test
-- headless stands for non-graphical display
+- browser stands for browser name: **chrome** or **edge**
+- **close** stands for close browser after each test (empty if not)
+- **headless** stands for non-graphical display (empty if not)
 - number stands for **@Tag()**, for example:
-> mvn clean test -P edge -P close -P headless -D"groups="111"
+> mvn clean test -P **edge** -P **close** -P **headless** -D"**groups=111**"
 
 or
 
-> mvn clean test -P chrome -P close -D"groups="111"
+> mvn clean test -P **chrome** -D"**groups=111**"
 
 ## By default:
 - chromedriver
