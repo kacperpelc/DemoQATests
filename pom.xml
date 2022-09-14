@@ -75,6 +75,8 @@
                     <trimStackTrace>false</trimStackTrace>
                     <systemPropertyVariables>
                         <browser.name>${browser.name}</browser.name>
+                        <browser.close>${browser.close}</browser.close>
+                        <browser.headless>${browser.headless}</browser.headless>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -93,6 +95,7 @@
             <id>chrome</id>
             <properties>
                 <browser.name>chrome</browser.name>
+                <browser.headless>false</browser.headless>
             </properties>
         </profile>
         <profile>
@@ -102,6 +105,45 @@
             <id>edge</id>
             <properties>
                 <browser.name>edge</browser.name>
+                <browser.headless>false</browser.headless>
+            </properties>
+        </profile>
+
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>closeNot</id>
+            <properties>
+                <browser.close>false</browser.close>
+            </properties>
+        </profile>
+        <profile>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <id>close</id>
+            <properties>
+                <browser.close>true</browser.close>
+            </properties>
+        </profile>
+
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>headlessNot</id>
+            <properties>
+                <browser.headless>false</browser.headless>
+            </properties>
+        </profile>
+        <profile>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <id>headless</id>
+            <properties>
+                <browser.headless>true</browser.headless>
             </properties>
         </profile>
     </profiles>

@@ -13,26 +13,30 @@
 * Selenium4
 * JUnit5
 
-## To run all tests in chrome:
+## To run all tests in chrome without close after test and with graphical display:
 > mvn clean test
 
 ## To run single test:
-> mvn clean test -P browser -D"groups=number"
+> mvn clean test -P browser -P close -P headless -D"groups=number"
 
 where:
-- name stands for browser's name, currently supported: **chrome** and **edge**
+- close stands for close browser after each test
+- headless stands for non-graphical display
 - number stands for **@Tag()**, for example:
-> mvn clean test -P chrome -D"groups="111"
+> mvn clean test -P edge -P close -P headless -D"groups="111"
+
+or
+
+> mvn clean test -P chrome -P close -D"groups="111"
 
 ## By default:
 - chromedriver
 - local
 - close browser after tests
+- non-headless display
 
 ## TODO:
 - implement firefoxDriver
-- implement headless test run
-- implement to choose close browser or not
 - implement selenium grid 4
 - implement screenshot making after test fail
 - improve profiles in maven

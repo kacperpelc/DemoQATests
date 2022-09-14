@@ -1,5 +1,7 @@
 package com.pel.foundation;
 
+import com.pel.foundation.browserOptions.ChromeOptionsOwn;
+import com.pel.foundation.browserOptions.EdgeOptionsOwn;
 import com.pel.utilities.EventCapture;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.BasicConfigurator;
@@ -11,8 +13,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.events.WebDriverListener;
-
-import javax.swing.text.html.Option;
 
 public class WebDriverPool {
     static WebDriver driver;
@@ -51,7 +51,7 @@ public class WebDriverPool {
 
     private static WebDriver getChromeDriver() {
         WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
+        return new ChromeDriver(ChromeOptionsOwn.get());
     }
 
     private static WebDriver getFirefoxDriver() {    // TODO make it work
@@ -63,7 +63,7 @@ public class WebDriverPool {
 
     private static WebDriver getEdgeDriver() {
         WebDriverManager.edgedriver().setup();
-        return new EdgeDriver();
+        return new EdgeDriver(EdgeOptionsOwn.get());
     }
 }
 

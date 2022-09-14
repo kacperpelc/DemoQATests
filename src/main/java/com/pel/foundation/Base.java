@@ -17,6 +17,10 @@ public class Base {
 
     @AfterAll
     public static void quit() {
-        WebDriverPool.get().quit();
+        try {
+            if(OptionsCollector.getClose().equals("true"))
+                WebDriverPool.get().quit();
+        } catch (NullPointerException nullPointerException) {
+        }
     }
 }
