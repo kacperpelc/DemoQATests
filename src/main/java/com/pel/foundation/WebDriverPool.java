@@ -38,6 +38,7 @@ public class WebDriverPool {
     }
 
     public static WebDriver getWebDriverDecorated() {
+        getWebDriver();
         WebDriverListener listener = new EventCapture();
         driverDecorated = new EventFiringDecorator(listener).decorate(driver);
         BasicConfigurator.configure();
