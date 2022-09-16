@@ -11,7 +11,7 @@ public class UploadAndDownloadTest extends Base {
         mainPage()
                 .openDemoQA()
                 .clickElements()
-                .clickUploadAndDownload()
+                .clickUploadAndDownload()   //todo make it working
                 .clickDownloadButton();
     }
 
