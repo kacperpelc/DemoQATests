@@ -23,6 +23,13 @@ public class PracticeFormTest extends Base {
                 .selectMonthFromList("May")
                 .selectYearFromList("1993")
                 .selectDay(29)
+                .selectHobby("Sports")
+                .selectHobby("Reading")
+                .selectHobby("Music")
+                //.selectPicture("")
+                .writeCurrentAddress("Szczecin")
+                /*.clickSelectState()     // element is hidden behind advertisement
+                .selectStateFromList("NCR")*/
                 .clickSubmitButton();
     }
 }

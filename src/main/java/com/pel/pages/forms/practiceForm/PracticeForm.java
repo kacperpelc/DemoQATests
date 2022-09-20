@@ -96,6 +96,37 @@ public class PracticeForm extends PageObject {
         return new Calendar();
     }
 
+    public PracticeForm selectHobby(String hobby) {
+        WebElement genderRadioButton = driver.findElement(By.xpath(String.format("//label[@class='custom-control-label' and contains(text(), '%s')]", hobby)));
+        genderRadioButton.click();
+        return new PracticeForm();
+    }
+
+    public PracticeForm selectPicture(String pictureName) {
+        waitScrollSendKeys(uploadInput, pictureName);
+        return new PracticeForm();
+    }
+
+    public PracticeForm writeCurrentAddress(String currentAddress) {
+        waitScrollSendKeys(currentAddressInput, currentAddress);
+        return new PracticeForm();
+    }
+
+    public PracticeForm clickSelectState() {
+        javaScript.scrollToElement(stateInput);
+        stateInput.click();
+        return new PracticeForm();
+    }
+
+    public PracticeForm selectStateFromList(String stateName) {
+        String stateXpath = String.format("//div[@id='state']//div[contains(@id, 'react-select') and contains(text(), '%s')]", stateName);
+        fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, By.xpath(stateXpath));
+        WebElement state = driver.findElement(By.xpath(stateXpath));
+        javaScript.scrollToElement(state);
+        state.click();
+        return new PracticeForm();
+    }
+
     public PracticeForm clickSubmitButton() {
         javaScript.scrollToElement(submitButton);
         submitButton.submit();
