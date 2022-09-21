@@ -2,11 +2,13 @@ package com.pel.interactions;
 
 import com.pel.foundation.Base;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Tags({@Tag("regression"), @Tag("interactions"), @Tag("selectable")})
 public class SelectableTest extends Base {
     @Tag("441")
     @Test
