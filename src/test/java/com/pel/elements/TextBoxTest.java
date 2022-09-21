@@ -2,8 +2,10 @@ package com.pel.elements;
 
 import com.pel.foundation.Base;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
+@Tags({@Tag("regression"), @Tag("elements"), @Tag("text_box")})
 public class TextBoxTest extends Base {
     @Tag("371")
     @Test
