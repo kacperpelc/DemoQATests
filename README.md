@@ -24,17 +24,16 @@ where:
 - **close** stands for close browser after each test (empty if not)
 - **headless** stands for non-graphical display (empty if not)
 - number stands for **@Tag()**, for example:
-> mvn clean test -P **edge** -P **close** -P **headless** -D"**groups=111**"
+> mvn clean test -P **edge** -P **headless** -D"**groups=111**"
 
 or
 
-> mvn clean test -P **chrome** -D"**groups=111**"
+> mvn clean test -P **chrome** -P **close** -D"groups=**elements**"
 
 ## By default:
 - chromedriver
-- local
 - close browser after tests
-- non-headless display
+- real browser display
 
 ## TODO:
 - implement firefoxDriver

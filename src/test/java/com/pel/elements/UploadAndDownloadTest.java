@@ -19,7 +19,7 @@ public class UploadAndDownloadTest extends Base {
 
     @Tag("382")
     @Test
-    public void uploadAndDownloadTest() {
+    public void uploadTest() {
         String fileName = "ExamplePNGFile.png";
         mainPage()
                 .openDemoQA()

@@ -96,6 +96,7 @@ public class LinksPage extends PageObject {
     }
 
     public LinksPage checkIfResponseContains(int code, String status) {
+        fluentWait.sleep(1);    // delay needed
         fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, response);
         String expectedResponse = String.format("Link has responded with staus %d and status text %s", code, status);
         check.checkIfElementEqualsText(response, expectedResponse);

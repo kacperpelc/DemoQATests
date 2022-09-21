@@ -29,6 +29,7 @@ public class Modal extends PageObject {
     }
 
     public Modal checkIfBodyContainsText(String expectedText) {
+        fluentWait.sleep(1);
         checkIfElementContainsText(modalBody, expectedText);
         return new Modal();
     }

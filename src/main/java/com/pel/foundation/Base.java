@@ -3,7 +3,7 @@ package com.pel.foundation;
 import com.pel.pages.MainPage;
 import com.pel.utilities.Constants;
 import com.pel.utilities.Screenshot;
-import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 public class Base {
@@ -15,8 +15,8 @@ public class Base {
     Screenshot watcher = new Screenshot(WebDriverPool.get(), Constants.SCREENSHOTS);
 
 
-    @AfterAll
-    public static void quit() {
+    @AfterEach
+    public void quit() {
         try {
             if(OptionsCollector.getClose().equals("true"))
                 WebDriverPool.get().quit();

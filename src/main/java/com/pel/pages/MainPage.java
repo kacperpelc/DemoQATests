@@ -8,6 +8,7 @@ import com.pel.pages.elements.ElementsPage;
 import com.pel.pages.forms.FormsPage;
 import com.pel.pages.interactions.InteractionsPage;
 import com.pel.pages.widgets.WidgetsPage;
+import com.pel.utilities.Constants;
 import com.pel.utilities.JavaScript;
 import com.pel.utilities.FluentWait;
 import org.openqa.selenium.WebElement;
@@ -50,37 +51,37 @@ public class MainPage extends PageObject {
     }
 
     public ElementsPage clickElements() {
-        waitScrollClick(elements, 15);
+        waitScrollClick(elements);
         return new ElementsPage();
     }
 
     public FormsPage clickForms() {
-        waitScrollClick(forms, 15);
+        waitScrollClick(forms);
         return new FormsPage();
     }
 
     public AlertsFrameWindowsPage clickAlertsFrameWindows() {
-        waitScrollClick(alertsFrameWindows, 15);
+        waitScrollClick(alertsFrameWindows);
         return new AlertsFrameWindowsPage();
     }
 
     public WidgetsPage clickWidgets() {
-        waitScrollClick(widgets, 15);
+        waitScrollClick(widgets);
         return new WidgetsPage();
     }
 
     public InteractionsPage clickInteractions() {
-        waitScrollClick(interactions, 15);
+        waitScrollClick(interactions);
         return new InteractionsPage();
     }
 
     public BookStorePage clickBookStore() {
-        waitScrollClick(bookStore, 15);
+        waitScrollClick(bookStore);
         return new BookStorePage();
     }
 
-    private void waitScrollClick(WebElement element, int seconds) {
-        fluentWait.pollingUntilVisibilityOfElement(1, seconds, element);
+    private void waitScrollClick(WebElement element) {
+        fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_HIGH, element);
         javaScript.scrollToElement(element);
         element.click();
     }

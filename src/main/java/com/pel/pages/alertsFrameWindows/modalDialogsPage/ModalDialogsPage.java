@@ -17,12 +17,14 @@ public class ModalDialogsPage extends PageObject {
     private WebElement largeModalButton;
 
     public Modal clickSmallModalButton() {
+        fluentWait.sleep(1);
         fluentWait.pollingUntilVisibilityOfElement(1, 15, smallModalButton);
         smallModalButton.click();
         return new Modal();
     }
 
     public Modal clickLargeModalButton() {
+        fluentWait.sleep(1);
         fluentWait.pollingUntilVisibilityOfElement(1, 15, largeModalButton);
         largeModalButton.click();
         return new Modal();
