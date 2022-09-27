@@ -12,6 +12,7 @@
 * Maven
 * Selenium4
 * JUnit5
+* RestAssured
 
 ## To run all tests in chrome without close after test and with graphical display:
 > mvn clean test

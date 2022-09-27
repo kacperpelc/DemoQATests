@@ -15,8 +15,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends PageObject {
-    private final String URL = "https://demoqa.com/";
-
     FluentWait fluentWait = new FluentWait();
     JavaScript javaScript = new JavaScript();
 
@@ -41,12 +39,12 @@ public class MainPage extends PageObject {
     private WebElement bookStore;
 
     public MainPage openDemoQA() {
-        WebDriverPool.getWebDriverDecorated().get(URL);
+        WebDriverPool.getWebDriverDecorated().get(Constants.DEMOQA_URL);
         return new MainPage();
     }
 
     public MainPage openDemoQAWithoutDecoration() {
-        WebDriverPool.getWebDriver().get(URL);
+        WebDriverPool.getWebDriver().get(Constants.DEMOQA_URL);
         return new MainPage();
     }
 
