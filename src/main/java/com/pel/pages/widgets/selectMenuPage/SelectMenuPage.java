@@ -26,7 +26,7 @@ public class SelectMenuPage extends PageObject {
     @FindBy(id = "oldSelectMenu")
     private WebElement oldSelectMenu;
 
-    @FindBy(xpath = "//*[contains(text(), 'Multiselect drop down')]")
+    @FindBy(xpath = "//*[contains(text(), 'Multiselect drop down')]//ancestor::div[1]//div")
     private WebElement multiselectDropDownMenu;
 
     @FindBy(id = "cars")
@@ -49,6 +49,21 @@ public class SelectMenuPage extends PageObject {
 
     public SelectMenuPage clickMultiselectDropDownMenu() {
         waitScrollClick(multiselectDropDownMenu);
+        return new SelectMenuPage();
+    }
+
+    public SelectMenuPage selectFromMultiselectDropDownMenu(String text) {
+        By selectXpath = By.xpath(String.format("//div[contains(@id, 'react-select') and contains(text(), '%s')]", text));
+        fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_LOW, selectXpath);
+        driver.findElement(selectXpath).click();
+        return new SelectMenuPage();
+    }
+
+    public SelectMenuPage checkIfMultiselectFromMenuContains(String text) {
+        By optionXpath = By.xpath("//*[contains(text(), 'Multiselect drop down')]//ancestor::div[1]//div[contains(@style, 'overflow: hidden')]");
+        fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_LOW, optionXpath);
+        By optionWithTextXpath = By.xpath(String.format("//*[contains(text(), 'Multiselect drop down')]//ancestor::div[1]//div[contains(text(), '%s')]", text));
+        check.checkIfElementContainsText(driver.findElement(optionWithTextXpath), text);
         return new SelectMenuPage();
     }
 

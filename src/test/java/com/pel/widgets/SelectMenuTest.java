@@ -15,7 +15,18 @@ public class SelectMenuTest extends Base {
                 .openDemoQA()
                 .clickWidgets()
                 .clickSelectMenuPage()
+                .clickMultiselectDropDownMenu()
+                .selectFromMultiselectDropDownMenu("Green")
+                .selectFromMultiselectDropDownMenu("Black")
+                .checkIfMultiselectFromMenuContains("Green")
+                .checkIfMultiselectFromMenuContains("Black")
+                .selectFromMultiselectDropDownMenu("Blue")
+                .selectFromMultiselectDropDownMenu("Red")
+                .checkIfMultiselectFromMenuContains("Blue")
+                .checkIfMultiselectFromMenuContains("Red")
                 .clickStandardMultiSelectOption("Volvo")
-                .checkIfMultiSelectOptionIsSelected("Volvo");
+                .clickStandardMultiSelectOption("Opel")
+                .checkIfMultiSelectOptionIsSelected("Volvo")
+                .checkIfMultiSelectOptionIsSelected("Opel");
     }
 }
