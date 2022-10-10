@@ -47,6 +47,22 @@ public class SelectMenuPage extends PageObject {
         return new SelectMenuPage();
     }
 
+    public SelectMenuPage selectFromOldStyleSelectMenu(String text) {
+        By selectXpath = By.xpath(String.format("//select[@id='oldSelectMenu']//option[contains(text(), '%s')]", text));
+        fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_LOW, selectXpath);
+        driver.findElement(selectXpath).click();
+        return new SelectMenuPage();
+    }
+
+    public SelectMenuPage checkIfOldStyleSelectMenuEquals(String text) {
+        String value = oldSelectMenu.getAttribute("value");
+        By optionXpath = By.xpath(String.format("//select[@id='oldSelectMenu']//*[@value='%s']", value));
+        fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_LOW, optionXpath);
+        if(!driver.findElement(optionXpath).getText().equals(text))
+            throw new org.openqa.selenium.NoSuchElementException(String.format("expected text: %s, but actual text is: %s", text, driver.findElement(optionXpath).getText()));
+        return new SelectMenuPage();
+    }
+
     public SelectMenuPage clickMultiselectDropDownMenu() {
         waitScrollClick(multiselectDropDownMenu);
         return new SelectMenuPage();

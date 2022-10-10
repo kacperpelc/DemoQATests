@@ -4,9 +4,6 @@ import com.pel.foundation.Base;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class SelectMenuTest extends Base {
     @Tag("661")
     @Test
@@ -15,6 +12,12 @@ public class SelectMenuTest extends Base {
                 .openDemoQA()
                 .clickWidgets()
                 .clickSelectMenuPage()
+                .clickOldStyleSelectMenu()
+                .selectFromOldStyleSelectMenu("Blue")
+                .checkIfOldStyleSelectMenuEquals("Blue")
+                .clickOldStyleSelectMenu()
+                .selectFromOldStyleSelectMenu("Aqua")
+                .checkIfOldStyleSelectMenuEquals("Aqua")
                 .clickMultiselectDropDownMenu()
                 .selectFromMultiselectDropDownMenu("Green")
                 .selectFromMultiselectDropDownMenu("Black")
