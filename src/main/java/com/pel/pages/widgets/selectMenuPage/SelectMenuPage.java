@@ -37,6 +37,20 @@ public class SelectMenuPage extends PageObject {
         return new SelectMenuPage();
     }
 
+    public SelectMenuPage selectFromSelectValueMenu(String text) {
+        By selectXpath = By.xpath(String.format("//div[contains(@id, 'react-select') and contains(text(), '%s')]", text));
+        fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_LOW, selectXpath);
+        javaScript.scrollToElement(driver.findElement(selectXpath));
+        driver.findElement(selectXpath).click();
+        return new SelectMenuPage();
+    }
+
+    public SelectMenuPage checkIfSelectValueMenuContains(String text) {
+        fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, selectValueMenu);
+        check.checkIfElementContainsText(selectValueMenu, text);
+        return new SelectMenuPage();
+    }
+
     public SelectMenuPage clickSelectOneMenu() {
         waitScrollClick(selectOneMenu);
         return new SelectMenuPage();
