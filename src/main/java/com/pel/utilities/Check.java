@@ -23,13 +23,13 @@ public class Check {
 
     public void checkIfElementHasCssValue(WebElement element, String cssProperty, String expectedCssValue) {
         if(!element.getCssValue(cssProperty).contains(expectedCssValue))
-            throw new NoSuchElementException(String.format("css property: %s; expected : %s, but actual is: %s",
+            throw new NoSuchElementException(String.format("css property: %s; expected: %s, but actual is: %s",
                     cssProperty, expectedCssValue, element.getCssValue(cssProperty)));
     }
 
     public void checkIfElementAttributeContainsValue(WebElement element, String attribute, String value) {
         if(!element.getAttribute(attribute).contains(value))
-            throw new NoSuchElementException(String.format("attribute: %s; expected : %s, but actual is: %s",
+            throw new NoSuchElementException(String.format("attribute: %s; expected: %s, but actual is: %s",
                    attribute, value, element.getAttribute(attribute)));
     }
 
