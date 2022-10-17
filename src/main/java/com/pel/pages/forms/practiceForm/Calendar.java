@@ -2,6 +2,7 @@ package com.pel.pages.forms.practiceForm;
 
 import com.pel.foundation.PageObject;
 import com.pel.foundation.WebDriverPool;
+import com.pel.pages.widgets.datePickerPage.DatePickerPage;
 import com.pel.utilities.Constants;
 import com.pel.utilities.FluentWait;
 import com.pel.utilities.JavaScript;
@@ -43,20 +44,27 @@ public class Calendar extends PageObject {
     }
 
     public Calendar selectMonthFromList(String monthName) {
-        String monthXpath = String.format("//option[contains(text(), '%s')]", monthName);
-        driver.findElement(By.xpath(monthXpath)).click();
+        By monthXpath = By.xpath(String.format("//option[contains(text(), '%s')]", monthName));
+        driver.findElement(monthXpath).click();
         return new Calendar();
     }
 
-    public Calendar selectYearFromList(String yearName) {
-        String yearXpath = String.format("//option[contains(text(), '%s')]", yearName);
-        driver.findElement(By.xpath(yearXpath)).click();
+    public Calendar selectYearFromList(int yearName) {
+        By yearXpath = By.xpath(String.format("//option[contains(text(), '%s')]", yearName));
+        driver.findElement(yearXpath).click();
         return new Calendar();
     }
 
     public PracticeForm selectDay(int day) {
-        String dayXpath = String.format("//div[contains(@class, 'react-datepicker__day') and not(contains(@class, '--outside-month')) and contains(text(), '%d')]", day);
-        driver.findElement(By.xpath(dayXpath)).click();
+        By dayXpath = By.xpath(String.format("//div[contains(@class, 'react-datepicker__day') and not(contains(@class, '--outside-month')) and contains(text(), '%d')]", day));
+        driver.findElement(dayXpath).click();
         return new PracticeForm();
+    }
+
+    public DatePickerPage selectDayAndGoToDatePickerPage(int day) {
+        By dayXpath = By.xpath(String.format("//div[contains(@class, 'react-datepicker__day') and not(contains(@class, '--outside-month')) and contains(text(), '%d')]", day));
+        javaScript.scrollToElement(driver.findElement(dayXpath));
+        driver.findElement(dayXpath).click();
+        return new DatePickerPage();
     }
 }
