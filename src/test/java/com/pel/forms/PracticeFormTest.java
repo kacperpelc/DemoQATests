@@ -23,7 +23,7 @@ public class PracticeFormTest extends Base {
                 .clickPreviousMonth()
                 .clickNextMonth()
                 .selectMonthFromList("May")
-                .selectYearFromList("1993")
+                .selectYearFromList(1993)
                 .selectDay(29)
                 .selectHobby("Sports")
                 .selectHobby("Reading")
