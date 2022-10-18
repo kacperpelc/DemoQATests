@@ -22,4 +22,21 @@ public class AutoCompleteTest extends Base {
                 .selectColor("Aqua")
                 .checkIfMultipleColorsContains("Aqua");
     }
+    @Tag("622")
+    @Test
+    public void autoCompleteTest2() {
+        mainPage()
+                .openDemoQA()
+                .clickWidgets()
+                .clickAutoCompletePage()
+                .writeInSingleColorsInput("a")
+                .selectColor("Black")
+                .checkIfSingleColorContains("Black")
+                .writeInSingleColorsInput("a")
+                .selectColor("Magenta")
+                .checkIfSingleColorContains("Magenta")
+                .writeInSingleColorsInput("a")
+                .selectColor("Aqua")
+                .checkIfSingleColorContains("Aqua");
+    }
 }

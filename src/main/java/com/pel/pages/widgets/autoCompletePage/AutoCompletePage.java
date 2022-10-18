@@ -24,8 +24,11 @@ public class AutoCompletePage extends PageObject {
     @FindBy(xpath = "//div[@id='autoCompleteMultipleContainer']//div[contains(@class, 'auto-complete__value-container')]")
     private WebElement multipleColorsResults;
 
-    @FindBy(id = "autoCompleteSingleContainer")
+    @FindBy(xpath = "//*[@id = 'autoCompleteSingleInput']")
     private WebElement singleColorInput;
+
+    @FindBy(xpath = "//div[@id='autoCompleteSingleContainer']//div[contains(@class, 'auto-complete__value-container')]")
+    private WebElement singleColorsResults;
 
     public AutoCompletePage writeInMultipleColorsInput(String text) {
         fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, multipleColorsInput);
@@ -45,6 +48,19 @@ public class AutoCompletePage extends PageObject {
 
     public AutoCompletePage checkIfMultipleColorsContains(String expectedText) {
         check.checkIfElementContainsText(multipleColorsResults, expectedText);
+        return new AutoCompletePage();
+    }
+
+    public AutoCompletePage writeInSingleColorsInput(String text) {
+        fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, singleColorInput);
+        javaScript.scrollToElement(singleColorInput);
+        singleColorInput.click();
+        singleColorInput.sendKeys(text);
+        return new AutoCompletePage();
+    }
+
+    public AutoCompletePage checkIfSingleColorContains(String expectedText) {
+        check.checkIfElementContainsText(singleColorsResults, expectedText);
         return new AutoCompletePage();
     }
 }
