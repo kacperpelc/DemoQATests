@@ -1,7 +1,6 @@
 package com.pel.utilities;
 
-import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.TestWatcher;
+import com.pel.foundation.WebDriverPool;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -10,42 +9,28 @@ import org.openqa.selenium.WebDriverException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Optional;
 
-public class Screenshot implements TestWatcher {
-    private WebDriver driver;
-    private String path;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-    public Screenshot(WebDriver driver, String path) {
-        this.driver = driver;
-        this.path = path;
-    }
+public class Screenshot {
+    private WebDriver driver = WebDriverPool.get();
+    SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+    String dateTimeNow = dateTimeFormat.format(new Date());
+    private String path = Constants.SCREENSHOTS + dateTimeNow + File.separator;
 
-    @Override
-    public void testDisabled(ExtensionContext context, Optional<String> reason) {
-    }
-
-    @Override
-    public void testSuccessful(ExtensionContext context) {
-    }
-
-    @Override
-    public void testAborted(ExtensionContext context, Throwable cause) {
-    }
-
-    @Override
-    public void testFailed(ExtensionContext context, Throwable cause) {
-        captureScreenshot(driver, context.getDisplayName());
-    }
-
-    public void captureScreenshot(WebDriver driver, String fileName) {  //TODO make it work
+    public void captureScreenshot(WebDriver driver, String fileName) {
         try {
             new File(path).mkdirs();
-            try (FileOutputStream out = new FileOutputStream(path + File.separator + "screenshot-" + fileName + ".png")) {
+            try (FileOutputStream out = new FileOutputStream(path + "screenshot-" + fileName + ".png")) {
                 out.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
             }
         } catch (IOException | WebDriverException e) {
             System.out.println("screenshot failed:" + e.getMessage());
         }
+    }
+
+    public void captureScreenshot(String fileName) {
+        captureScreenshot(driver, fileName);
     }
 }

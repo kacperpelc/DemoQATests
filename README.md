@@ -39,7 +39,7 @@ or
 ## TODO:
 - implement firefoxDriver
 - implement selenium grid 4
-- implement screenshot making after test fail
+- improve screenshots
 - improve profiles in maven
 - improve logs
 
