@@ -10,19 +10,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Screenshot {
     private WebDriver driver = WebDriverPool.get();
-    SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-    String dateTimeNow = dateTimeFormat.format(new Date());
-    private String path = Constants.SCREENSHOTS + dateTimeNow + File.separator;
 
-    public void captureScreenshot(WebDriver driver, String fileName) {
+    private void captureScreenshot(WebDriver driver, String root, String fileName) {
+        final String path = Constants.SCREENSHOTS + root + File.separator;
         try {
             new File(path).mkdirs();
-            try (FileOutputStream out = new FileOutputStream(path + "screenshot-" + fileName + ".png")) {
+            try (FileOutputStream out = new FileOutputStream(path + fileName + ".png")) {
                 out.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
             }
         } catch (IOException | WebDriverException e) {
@@ -30,7 +25,7 @@ public class Screenshot {
         }
     }
 
-    public void captureScreenshot(String fileName) {
-        captureScreenshot(driver, fileName);
+    public void captureScreenshot(String root, String fileName) {
+        captureScreenshot(driver, root, fileName);
     }
 }

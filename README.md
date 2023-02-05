@@ -35,11 +35,12 @@ or
 - chromedriver
 - close browser after tests
 - real browser display
+- screenshots on fails and successes
+- red borders around found elements
 
 ## TODO:
 - implement firefoxDriver
 - implement selenium grid 4
-- improve screenshots
 - improve profiles in maven
 - improve logs
 
