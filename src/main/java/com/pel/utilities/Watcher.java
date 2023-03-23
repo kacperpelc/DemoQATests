@@ -20,7 +20,7 @@ public class Watcher implements TestWatcher {
 
     @Override
     public void testSuccessful(ExtensionContext context) {
-        takeScreenshot("successful - " + context.getDisplayName());
+//        takeScreenshot("PASSED - " + context.getDisplayName());
         quit();
     }
 
@@ -31,7 +31,7 @@ public class Watcher implements TestWatcher {
 
     @Override
     public void testFailed(ExtensionContext context, Throwable cause) {
-        takeScreenshot("failed - " + context.getDisplayName());
+        takeScreenshot("FAILED - " + context.getDisplayName());
         quit();
     }
 
