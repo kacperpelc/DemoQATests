@@ -27,4 +27,9 @@ public class Mouse {
         Actions actions = new Actions(driver);
         actions.dragAndDropBy(source, xOffset, yOffset).build().perform();
     }
+
+    public void hoverOnElement(WebElement element) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).perform();
+    }
 }
