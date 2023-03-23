@@ -56,12 +56,7 @@ public class DateTimePicker extends PageObject {
         By yearMinXpath = By.xpath("//div[contains(@class, '__year-option') and not(a)][last()]");
 
         By yearXpath = By.xpath(String.format("//div[text()='%d']", yearName));
-        int i = 0;
         while (true) {
-            System.out.println("aaa" + i);
-
-            if(i == 30)
-                throw new NoSuchElementException("dupa");
             try {
                 if (yearName > Integer.parseInt(driver.findElement(yearMaxXpath).getText().replaceAll("[^\\d.]", ""))) {
                     By arrowUpXpath = By.xpath("//div[contains(@class, '__year-option') and a][1]");
@@ -77,10 +72,8 @@ public class DateTimePicker extends PageObject {
                 driver.findElement(yearXpath).click();
                 return new DateTimePicker();
             } catch(NoSuchElementException noSuchElementException) {
-                //fluentWait.sleep(1);
             }
         }
-        //driver.findElement(yearXpath).click();
     }
 
     public DateTimePicker selectDay(int day) {
