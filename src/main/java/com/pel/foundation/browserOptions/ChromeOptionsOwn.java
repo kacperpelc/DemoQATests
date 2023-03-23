@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ChromeOptionsOwn {
-    private static final boolean headless = System.getProperty("browser.headless").equalsIgnoreCase("true");
-
     public static ChromeOptions get() {
         Map<String, Object> preferences = new HashMap<>();
         preferences.put("profile.default_content_settings.popups", 0);
@@ -16,8 +14,8 @@ public class ChromeOptionsOwn {
         preferences.put("download.directory_upgrade", true);
 
         ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--remote-allow-origins=*");
         options.setExperimentalOption("prefs", preferences);
-        options.setHeadless(headless);
         return options;
     }
 }

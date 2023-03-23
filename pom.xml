@@ -12,18 +12,18 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.3.0</version>
+            <version>5.3.2</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.9.0</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.9.0</version>
+            <version>${junit.version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -68,7 +68,12 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>5.2.0</version>
+            <version>5.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-http-jdk-client</artifactId>
+            <version>${selenium.version}</version>
         </dependency>
     </dependencies>
 
@@ -82,7 +87,6 @@
                     <systemPropertyVariables>
                         <browser.name>${browser.name}</browser.name>
                         <browser.close>${browser.close}</browser.close>
-                        <browser.headless>${browser.headless}</browser.headless>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -101,7 +105,6 @@
             <id>chrome</id>
             <properties>
                 <browser.name>chrome</browser.name>
-                <browser.headless>false</browser.headless>
             </properties>
         </profile>
         <profile>
@@ -111,7 +114,6 @@
             <id>edge</id>
             <properties>
                 <browser.name>edge</browser.name>
-                <browser.headless>false</browser.headless>
             </properties>
         </profile>
 
@@ -133,34 +135,16 @@
                 <browser.close>true</browser.close>
             </properties>
         </profile>
-
-        <profile>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <id>headlessNot</id>
-            <properties>
-                <browser.headless>false</browser.headless>
-            </properties>
-        </profile>
-        <profile>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <id>headless</id>
-            <properties>
-                <browser.headless>true</browser.headless>
-            </properties>
-        </profile>
     </profiles>
 
     <properties>
+        <browser>chrome</browser>
+        <junit.version>5.9.2</junit.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <browser>chrome</browser>
-        <selenium.version>4.5.0</selenium.version>
-        <slf4j.version>2.0.3</slf4j.version>
+        <selenium.version>4.8.1</selenium.version>
+        <slf4j.version>2.0.5</slf4j.version>
     </properties>
 
 </project>
