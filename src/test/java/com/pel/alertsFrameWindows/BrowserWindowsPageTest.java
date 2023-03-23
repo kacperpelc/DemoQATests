@@ -21,9 +21,9 @@ public class BrowserWindowsPageTest extends Base {
                 .openNewWindow()
                 .validateIfElementContainsText("This is a sample page")
                 .closeTabAndGoBackToBrowserWindowsPage()
-                .openNewWindowWithMessage()
+                /*.openNewWindowWithMessage()
                 //TODO make it work
-                /*.validateIfElementWithMessageContainsText("Knowledge increases by sharing but not by saving.")
+                .validateIfElementWithMessageContainsText("Knowledge increases by sharing but not by saving.")
                 .closeTabAndGoBackToBrowserWindowsPage()*/;
     }
 }

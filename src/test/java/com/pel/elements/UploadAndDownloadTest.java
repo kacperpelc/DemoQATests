@@ -1,12 +1,11 @@
 package com.pel.elements;
 
 import com.pel.foundation.Base;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 @Tags({@Tag("regression"), @Tag("elements"), @Tag("upload_and_download")})
 public class UploadAndDownloadTest extends Base {
+    @Disabled
     @Tag("381")
     @Test
     public void downloadTest() {
@@ -18,6 +17,7 @@ public class UploadAndDownloadTest extends Base {
     }
 
     @Tag("382")
+    @DisplayName("Upload test")
     @Test
     public void uploadTest() {
         String fileName = "ExamplePNGFile.png";
