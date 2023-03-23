@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
-@Tags({@Tag("regression"), @Tag("widgets"), @Tag("selectMenu")})
+@Tags({@Tag("regression"), @Tag("widgets"), @Tag("toolTips")})
 
 public class ToolTipsTest extends Base {
     @Tag("671")
     @Test
-    public void selectMenuTest() {
+    public void toolTipsTest() {
         mainPage()
                 .openDemoQA()
                 .clickWidgets()
