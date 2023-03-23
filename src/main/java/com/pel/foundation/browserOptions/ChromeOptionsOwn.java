@@ -14,7 +14,6 @@ public class ChromeOptionsOwn {
         preferences.put("download.directory_upgrade", true);
 
         ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--remote-allow-origins=*");
         options.setExperimentalOption("prefs", preferences);
         return options;
     }
