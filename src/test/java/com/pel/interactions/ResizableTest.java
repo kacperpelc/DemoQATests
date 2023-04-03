@@ -1,6 +1,7 @@
 package com.pel.interactions;
 
 import com.pel.foundation.Base;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Test;
 @Tags({@Tag("regression"), @Tag("interactions"), @Tag("resizable")})
 public class ResizableTest extends Base {
     @Tag("431")
+    @DisplayName("Resizable test")
     @Test
     public void resizableTest() {
         mainPage()

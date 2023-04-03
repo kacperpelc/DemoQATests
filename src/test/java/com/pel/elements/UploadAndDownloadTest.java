@@ -7,6 +7,7 @@ import org.junit.jupiter.api.*;
 public class UploadAndDownloadTest extends Base {
     @Disabled
     @Tag("381")
+    @DisplayName("Download test")
     @Test
     public void downloadTest() {
         mainPage()

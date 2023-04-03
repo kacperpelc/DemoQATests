@@ -1,6 +1,7 @@
 package com.pel.widgets;
 
 import com.pel.foundation.Base;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 public class DatePickerTest extends Base {
     @Tag("631")
+    @DisplayName("Date picker test")
     @Test
     public void datePickerTest1() {
         int year = 1993;
@@ -25,6 +27,7 @@ public class DatePickerTest extends Base {
                 .checkIfSelectDateEquals(day, month, year);
     }
     @Tag("632")
+    @DisplayName("Date time picker test")
     @Test
     public void datePickerTest2() {
         int year = 1993;

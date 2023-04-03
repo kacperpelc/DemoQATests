@@ -1,6 +1,7 @@
 package com.pel.widgets;
 
 import com.pel.foundation.Base;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 public class SelectMenuTest extends Base {
     @Tag("661")
+    @DisplayName("Select menu test")
     @Test
     public void selectMenuTest() {
         mainPage()

@@ -1,11 +1,13 @@
 package com.pel.widgets;
 
 import com.pel.foundation.Base;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class AutoCompleteTest extends Base {
     @Tag("621")
+    @DisplayName("Auto complete test - multi")
     @Test
     public void autoCompleteTest() {
         mainPage()
@@ -23,6 +25,7 @@ public class AutoCompleteTest extends Base {
                 .checkIfMultipleColorsContains("Aqua");
     }
     @Tag("622")
+    @DisplayName("Auto complete test - single")
     @Test
     public void autoCompleteTest2() {
         mainPage()

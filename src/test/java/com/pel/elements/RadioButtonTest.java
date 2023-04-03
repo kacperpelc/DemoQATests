@@ -1,17 +1,15 @@
 package com.pel.elements;
 
 import com.pel.foundation.Base;
-import com.pel.foundation.WebDriverPool;
-import com.pel.utilities.Constants;
-import com.pel.utilities.Screenshot;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.RegisterExtension;
 
 @Tags({@Tag("regression"), @Tag("elements"), @Tag("radio_button")})
 public class RadioButtonTest extends Base {
     @Tag("361")
+    @DisplayName("Radio button test")
     @Test
     public void radioButtonTest() {
         mainPage()

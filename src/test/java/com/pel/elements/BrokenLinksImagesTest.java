@@ -1,6 +1,7 @@
 package com.pel.elements;
 
 import com.pel.foundation.Base;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Test;
 @Tags({@Tag("regression"), @Tag("elements"), @Tag("broken_links_images")})
 public class BrokenLinksImagesTest extends Base {
     @Tag("311")
+    @DisplayName("Broken links and images test")
     @Test
     public void brokenLinksImagesTest() {
         mainPage()

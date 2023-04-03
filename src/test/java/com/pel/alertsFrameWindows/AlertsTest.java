@@ -1,6 +1,7 @@
 package com.pel.alertsFrameWindows;
 
 import com.pel.foundation.Base;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 public class AlertsTest extends Base {
 
     @Tag("111")
+    @DisplayName("Alerts test")
     @Test
     public void alertsTest() {
         mainPage()
