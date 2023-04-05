@@ -35,7 +35,6 @@ public class DroppableAcceptPage extends PageObject {
     }
 
     public DroppableAcceptPage checkIfBoxIsDroppedCorrectly(String color) {
-//        fluentWait.sleep(5);
         check.checkIfElementHasCssValue(droppableBox, "background-color", color);
         return new DroppableAcceptPage();
     }

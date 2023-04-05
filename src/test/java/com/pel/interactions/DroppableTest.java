@@ -35,4 +35,21 @@ public class DroppableTest extends Base {
                 .dragAndDropAcceptableBox()
                 .checkIfBoxIsDroppedCorrectly("rgba(70, 130, 180, 1)");
     }
+
+    @Tag("423")
+    @DisplayName("Droppable test - prevent propagation")
+    @Test
+    public void droppableTest3() {
+        mainPage()
+                .openDemoQA()
+                .clickInteractions()
+                .clickDroppable()
+                .clickOnPreventPropagationTab()
+                .dragAndDropBox("not greedy")
+                .checkIfBoxIsDroppedCorrectly("not greedy", "outer", "rgba(70, 130, 180, 1)")
+                .checkIfBoxIsDroppedCorrectly("not greedy", "inner", "rgba(70, 130, 180, 1)")
+                .dragAndDropBox("greedy")
+                .checkIfBoxIsDroppedCorrectly("greedy", "outer", "rgba(0, 0, 0, 0)")
+                .checkIfBoxIsDroppedCorrectly("greedy", "inner", "rgba(70, 130, 180, 1)");
+    }
 }
