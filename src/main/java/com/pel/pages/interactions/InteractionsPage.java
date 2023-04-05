@@ -45,7 +45,7 @@ public class InteractionsPage extends PageObject {
         return new ResizablePage();
     }
 
-    public DroppablePage clickDroppablePage() {
+    public DroppablePage clickDroppable() {
         waitScrollClick(droppable, 15);
         return new DroppablePage();
     }
