@@ -40,8 +40,8 @@ public class DroppablePage extends PageObject {
     }
 
     public DroppableRevertPage clickOnRevertDraggableTab() {
-        fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, simpleTab);
-        simpleTab.click();
+        fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, revertDraggableTab);
+        revertDraggableTab.click();
         return new DroppableRevertPage();
     }
 }
