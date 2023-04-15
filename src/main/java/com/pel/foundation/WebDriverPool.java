@@ -51,8 +51,7 @@ public class WebDriverPool {
     }
 
     private static WebDriver getChromeDriver() {
-        WebDriverManager.chromedriver().browserInDocker().setup();
-//        RemoteWebDriver.builder();
+        WebDriverManager.chromedriver().setup();
         return new ChromeDriver(ChromeOptionsOwn.get());
     }
 
