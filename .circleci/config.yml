@@ -29,7 +29,7 @@ jobs:
       # Then run your tests!
       - run:
           name: Test
-          command: mvn test -P chrome -P close -D"groups=631"
+          command: mvn test -P chrome -P close
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
