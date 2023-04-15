@@ -16,6 +16,7 @@ public class ChromeOptionsOwn {
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", preferences);
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
         return options;
     }
 }
