@@ -25,4 +25,8 @@ jobs:
 workflows:
   build_and_run_regression:
     jobs:
-      - build_and_run_regression
+      - build_and_run_regression:
+          filters:
+            branches:
+              only:
+                - main
