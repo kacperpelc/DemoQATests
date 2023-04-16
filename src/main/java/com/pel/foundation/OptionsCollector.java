@@ -3,6 +3,7 @@ package com.pel.foundation;
 public class OptionsCollector {
     public static final String BROWSER_NAME = System.getProperty("browser.name", "chrome");
     public static final String CLOSE = System.getProperty("browser.close");
+    public static final String HEADLESS = System.getProperty("browser.headless");
 
     public static String getBrowserName() {
         if (BROWSER_NAME == null || BROWSER_NAME.isEmpty()) {
@@ -14,5 +15,9 @@ public class OptionsCollector {
 
     public static String getClose() {
         return CLOSE;
+    }
+
+    public static String getHeadless() {
+        return HEADLESS;
     }
 }
