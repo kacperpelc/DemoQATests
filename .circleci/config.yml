@@ -4,8 +4,7 @@ orbs:
   browser-tools: circleci/browser-tools@1.4.1
 
 jobs:
-
-  build:
+  build_and_run_regression:
     docker:
       - image: cimg/openjdk:11.0.16
     steps:
@@ -15,7 +14,6 @@ jobs:
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
-  run_regression:
       - run:
           name: Test
           command: mvn test -P chrome -P close -P headless -D"group=regression"
@@ -27,5 +25,4 @@ jobs:
 workflows:
   build_and_run_regression:
     jobs:
-      - build
-      - run_regression
+      - build_and_run_regression
