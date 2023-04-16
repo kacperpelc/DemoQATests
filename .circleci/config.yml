@@ -8,6 +8,7 @@ orbs:
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
+
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
   build-and-test:
     # These next lines define a Docker executor: https://circleci.com/docs/2.0/executor-types/
@@ -26,8 +27,9 @@ jobs:
       - run:
           name: Create folders
           command: |
-            mkdir /test_reports/results;
-            mkdir /test_reports/artifacts;
+            mkdir test_reports;
+            mkdir test_reports/results;
+            mkdir test_reports/artifacts;
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
