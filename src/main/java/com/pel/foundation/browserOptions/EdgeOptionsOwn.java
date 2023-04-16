@@ -17,8 +17,10 @@ public class EdgeOptionsOwn {
         EdgeOptions options = new EdgeOptions();
         options.setExperimentalOption("prefs", preferences);
 
-        if (OptionsCollector.getHeadless().equals("true"))
+        if (OptionsCollector.getHeadless().equals("true")) {
             options.addArguments("--headless");
+            options.addArguments("window-size=1920,1080");
+        }
         return options;
     }
 }

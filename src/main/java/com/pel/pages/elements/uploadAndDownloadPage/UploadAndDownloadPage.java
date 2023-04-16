@@ -32,7 +32,7 @@ public class UploadAndDownloadPage extends PageObject {
     public UploadAndDownloadPage sendFile(String fileName) {
         fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, buttonUpload);
         javaScript.scrollToElement(buttonUpload);
-        buttonUpload.sendKeys(Constants.ATTACHMENTS_DIR_BACKSLASH + fileName);
+        buttonUpload.sendKeys(Constants.ATTACHMENTS_DIR + fileName);
         fluentWait.sleep(5);
         return new UploadAndDownloadPage();
     }
