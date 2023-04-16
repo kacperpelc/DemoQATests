@@ -24,12 +24,12 @@ jobs:
       - checkout
       - browser-tools/install-browser-tools
       # Use mvn clean and package as the standard maven build phase
-      - run:
-          name: Create folders
-          command: |
-            mkdir test_reports;
-            mkdir test_reports/results;
-            mkdir test_reports/artifacts;
+#      - run:
+#          name: Create folders
+#          command: |
+#            mkdir test_reports;
+#            mkdir test_reports/results;
+#            mkdir test_reports/artifacts;
       - run:
           name: Build
           command: mvn -B -DskipTests clean package
@@ -38,9 +38,9 @@ jobs:
           name: Test
           command: mvn test -P chrome -P close -P headless -D"group=regression"
       - store_test_results:
-          path: ./test_reports/results
+          path: ./target
       - store_artifacts:
-          path: ./test_reports/artifacts
+          path: ./target/screenshots
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
