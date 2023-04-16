@@ -1,5 +1,6 @@
 package com.pel.foundation.browserOptions;
 
+import com.pel.foundation.OptionsCollector;
 import com.pel.utilities.Constants;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -15,6 +16,10 @@ public class ChromeOptionsOwn {
 
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", preferences);
+        options.addArguments("--disable-dev-shm-usage");
+
+        if (OptionsCollector.getHeadless().equals("true"))
+            options.addArguments("--headless");
         return options;
     }
 }

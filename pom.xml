@@ -87,6 +87,7 @@
                     <systemPropertyVariables>
                         <browser.name>${browser.name}</browser.name>
                         <browser.close>${browser.close}</browser.close>
+                        <browser.headless>${browser.headless}</browser.headless>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -133,6 +134,25 @@
             <id>close</id>
             <properties>
                 <browser.close>true</browser.close>
+            </properties>
+        </profile>
+
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>headlessNot</id>
+            <properties>
+                <browser.headless>false</browser.headless>
+            </properties>
+        </profile>
+        <profile>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <id>headless</id>
+            <properties>
+                <browser.headless>true</browser.headless>
             </properties>
         </profile>
     </profiles>

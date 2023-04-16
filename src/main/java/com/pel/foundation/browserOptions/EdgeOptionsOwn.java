@@ -1,5 +1,6 @@
 package com.pel.foundation.browserOptions;
 
+import com.pel.foundation.OptionsCollector;
 import com.pel.utilities.Constants;
 import org.openqa.selenium.edge.EdgeOptions;
 
@@ -15,6 +16,9 @@ public class EdgeOptionsOwn {
 
         EdgeOptions options = new EdgeOptions();
         options.setExperimentalOption("prefs", preferences);
+
+        if (OptionsCollector.getHeadless().equals("true"))
+            options.addArguments("--headless");
         return options;
     }
 }
