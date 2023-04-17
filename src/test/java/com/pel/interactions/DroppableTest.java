@@ -15,7 +15,7 @@ public class DroppableTest extends Base {
     }
 
     @Tag("421")
-//    @DisabledIf("checkIfHeadless")
+    @DisabledIf("checkIfHeadless")  // headless mode gives false negative results
     @DisplayName("Droppable test - simple")
     @Test
     public void droppableTest() {
@@ -29,7 +29,7 @@ public class DroppableTest extends Base {
     }
 
     @Tag("422")
-//    @DisabledIf("checkIfHeadless")
+    @DisabledIf("checkIfHeadless")  // headless mode gives false negative results
     @DisplayName("Droppable test - accept")
     @Test
     public void droppableTest2() {
@@ -45,7 +45,7 @@ public class DroppableTest extends Base {
     }
 
     @Tag("423")
-//    @DisabledIf("checkIfHeadless")
+    @DisabledIf("checkIfHeadless")  // headless mode gives false negative results
     @DisplayName("Droppable test - prevent propagation")
     @Test
     public void droppableTest3() {
@@ -63,7 +63,7 @@ public class DroppableTest extends Base {
     }
 
     @Tag("424")
-//    @DisabledIf("checkIfHeadless")
+    @DisabledIf("checkIfHeadless")  // headless mode gives false negative results
     @DisplayName("Droppable test - prevent propagation")
     @Test
     public void droppableTest4() {
