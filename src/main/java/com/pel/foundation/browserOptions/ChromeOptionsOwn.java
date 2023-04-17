@@ -18,8 +18,10 @@ public class ChromeOptionsOwn {
         options.setExperimentalOption("prefs", preferences);
         options.addArguments("--disable-dev-shm-usage");
 
-        if (OptionsCollector.getHeadless().equals("true"))
+        if (OptionsCollector.getHeadless().equals("true")) {
             options.addArguments("--headless");
+            options.addArguments("window-size=1920,1080");
+        }
         return options;
     }
 }

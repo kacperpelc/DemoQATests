@@ -1,15 +1,19 @@
 package com.pel.widgets;
 
 import com.pel.foundation.Base;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import com.pel.foundation.OptionsCollector;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.*;
 
 @Tags({@Tag("regression"), @Tag("widgets"), @Tag("toolTips")})
 
 public class ToolTipsTest extends Base {
+    private boolean checkIfHeadless() {
+        return !OptionsCollector.getHeadless().isEmpty();
+    }
+
     @Tag("671")
+    @DisabledIf("checkIfHeadless")
     @DisplayName("Tool tips test")
     @Test
     public void toolTipsTest() {
