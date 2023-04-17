@@ -27,6 +27,7 @@ public class ResizableTest extends Base {
     }
 
     @Tag("432")
+    @DisplayName("Resizable no limit test")
     @Test
     public void resizableNoLimitTest() {
         mainPage()

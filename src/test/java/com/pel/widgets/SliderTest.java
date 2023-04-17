@@ -14,12 +14,12 @@ public class SliderTest extends Base {
     @Test
     public void sliderTest() {
         mainPage()
-                .openDemoQA()
+                .openDemoQAWithoutDecoration()
                 .clickWidgets()
                 .clickSliderPage()
-                .dragAndDropSlider(300)
+                .dragAndDropSlider(400)
                 .checkIfSliderValueEquals(100)
-                .dragAndDropSlider(-300)
+                .dragAndDropSlider(-400)
                 .checkIfSliderValueEquals(0);
     }
 }
