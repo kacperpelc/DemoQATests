@@ -7,7 +7,6 @@ jobs:
   build_and_run_regression:
     docker:
       - image: cimg/openjdk:11.0.16
-    parallelism: 4
     steps:
       - checkout
       - browser-tools/install-chrome
