@@ -1,14 +1,21 @@
 package com.pel.interactions;
 
 import com.pel.foundation.Base;
+import com.pel.foundation.OptionsCollector;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIf;
 
 @Tags({@Tag("regression"), @Tag("interactions"), @Tag("resizable")})
 public class DroppableTest extends Base {
+    private boolean checkIfHeadless() {
+        return !OptionsCollector.getHeadless().isEmpty();
+    }
+
     @Tag("421")
+//    @DisabledIf("checkIfHeadless")
     @DisplayName("Droppable test - simple")
     @Test
     public void droppableTest() {
@@ -22,6 +29,7 @@ public class DroppableTest extends Base {
     }
 
     @Tag("422")
+//    @DisabledIf("checkIfHeadless")
     @DisplayName("Droppable test - accept")
     @Test
     public void droppableTest2() {
@@ -37,6 +45,7 @@ public class DroppableTest extends Base {
     }
 
     @Tag("423")
+//    @DisabledIf("checkIfHeadless")
     @DisplayName("Droppable test - prevent propagation")
     @Test
     public void droppableTest3() {
@@ -54,6 +63,7 @@ public class DroppableTest extends Base {
     }
 
     @Tag("424")
+//    @DisabledIf("checkIfHeadless")
     @DisplayName("Droppable test - prevent propagation")
     @Test
     public void droppableTest4() {

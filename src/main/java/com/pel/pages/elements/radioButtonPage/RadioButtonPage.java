@@ -43,12 +43,14 @@ public class RadioButtonPage extends PageObject {
     }
 
     public RadioButtonPage checkIfRadioMessageEquals(String expectedText) {
+        fluentWait.sleep(1);
         fluentWait.pollingUntilVisibilityOfElement(1, 15, radioMessage);
         check.checkIfElementEqualsText(radioMessage, expectedText);
         return new RadioButtonPage();
     }
 
     public RadioButtonPage checkIfRadioButtonNoIsDisabled() {
+        fluentWait.sleep(1);
         check.checkIfElementAttributeContainsValue(noRadioButton, "class", "disabled");
         return new RadioButtonPage();
     }
