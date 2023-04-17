@@ -27,6 +27,7 @@ public class DatePickerPage extends PageObject {
     }
 
     public DateTimePicker clickDateTimePicker() {
+        fluentWait.sleep(1);
         fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, dateTimePicker);
         dateTimePicker.click();
         return new DateTimePicker();
