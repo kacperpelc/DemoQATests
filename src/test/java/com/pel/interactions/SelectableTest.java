@@ -12,7 +12,7 @@ import java.util.List;
 @Tags({@Tag("regression"), @Tag("interactions"), @Tag("selectable")})
 public class SelectableTest extends Base {
     @Tag("441")
-    @DisplayName("Selectable test")
+    @DisplayName("Selectable test - list")
     @Test
     public void selectableListTest(){
         List<String> listExpected = Arrays.asList("Cras justo odio", "Dapibus ac facilisis in");
@@ -31,6 +31,7 @@ public class SelectableTest extends Base {
     }
 
     @Tag("442")
+    @DisplayName("Selectable test - grid")
     @Test
     public void selectableGridTest(){
         List<String> listExpected = Arrays.asList("One", "Three", "Five", "Seven", "Nine");
