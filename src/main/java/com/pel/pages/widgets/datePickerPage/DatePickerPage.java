@@ -21,6 +21,7 @@ public class DatePickerPage extends PageObject {
     private WebElement dateTimePicker;
 
     public Calendar clickDatePicker() {
+        fluentWait.sleep(1);
         fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, datePicker);
         datePicker.click();
         return new Calendar();
