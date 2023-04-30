@@ -24,6 +24,7 @@ public class AccordionPage extends PageObject {
 
     public AccordionPage clickHeader(String text) {
         By headerXpath = By.xpath(String.format("//div[@class='card']//div[contains(text(), '%s')]", text));
+        fluentWait.sleep(1);
         fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, headerXpath);
         javaScript.scrollToElement(driver.findElement(headerXpath));
         driver.findElement(headerXpath).click();
