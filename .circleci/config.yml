@@ -17,8 +17,8 @@ jobs:
       - run:
           name: Test
           command: mvn test -P chrome -P close -P headless -D"group=regression"
-#      - store_test_results:
-#          path: ./target
+      - store_test_results:
+          path: ./target
       - store_artifacts:
           path: ./target/screenshots
 
