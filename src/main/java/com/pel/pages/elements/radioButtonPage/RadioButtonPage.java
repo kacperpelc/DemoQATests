@@ -25,6 +25,7 @@ public class RadioButtonPage extends PageObject {
     private WebElement radioMessage;
 
     public RadioButtonPage clickRadioButtonYes() {
+        fluentWait.sleep(1);
         fluentWait.pollingUntilVisibilityOfElement(1, 15, yesRadioButton);
         yesRadioButton.click();
         return new RadioButtonPage();

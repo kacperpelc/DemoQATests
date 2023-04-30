@@ -10,7 +10,6 @@ import org.junit.jupiter.api.condition.DisabledIf;
 @Tags({@Tag("regression"), @Tag("interactions"), @Tag("resizable")})
 public class ResizableTest extends Base {
     @Tag("431")
-    @DisabledIf("checkIfHeadless")  // headless mode gives false negative results
     @DisplayName("Resizable test")
     @Test
     public void resizableTest() {
@@ -29,7 +28,6 @@ public class ResizableTest extends Base {
     }
 
     @Tag("432")
-    @DisabledIf("checkIfHeadless")  // headless mode gives false negative results
     @DisplayName("Resizable no limit test")
     @Test
     public void resizableNoLimitTest() {

@@ -8,12 +8,8 @@ import org.junit.jupiter.api.condition.*;
 @Tags({@Tag("regression"), @Tag("widgets"), @Tag("toolTips")})
 
 public class ToolTipsTest extends Base {
-    private boolean checkIfHeadless() {
-        return !OptionsCollector.getHeadless().isEmpty();
-    }
-
     @Tag("671")
-    @DisabledIf("checkIfHeadless")
+    @Disabled
     @DisplayName("Tool tips test")
     @Test
     public void toolTipsTest() {

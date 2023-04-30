@@ -10,12 +10,7 @@ import org.junit.jupiter.api.condition.DisabledIf;
 
 @Tags({@Tag("regression"), @Tag("interactions"), @Tag("resizable")})
 public class DroppableTest extends Base {
-    private boolean checkIfHeadless() {
-        return !OptionsCollector.getHeadless().isEmpty();
-    }
-
     @Tag("421")
-    @DisabledIf("checkIfHeadless")  // headless mode gives false negative results
     @DisplayName("Droppable test - simple")
     @Test
     public void droppableTest() {
@@ -29,7 +24,6 @@ public class DroppableTest extends Base {
     }
 
     @Tag("422")
-    @DisabledIf("checkIfHeadless")  // headless mode gives false negative results
     @DisplayName("Droppable test - accept")
     @Test
     public void droppableTest2() {
@@ -45,7 +39,6 @@ public class DroppableTest extends Base {
     }
 
     @Tag("423")
-    @DisabledIf("checkIfHeadless")  // headless mode gives false negative results
     @DisplayName("Droppable test - prevent propagation")
     @Test
     public void droppableTest3() {
@@ -63,7 +56,6 @@ public class DroppableTest extends Base {
     }
 
     @Tag("424")
-    @DisabledIf("checkIfHeadless")  // headless mode gives false negative results
     @DisplayName("Droppable test - prevent propagation")
     @Test
     public void droppableTest4() {
