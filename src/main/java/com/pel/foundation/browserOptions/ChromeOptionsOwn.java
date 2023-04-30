@@ -20,6 +20,8 @@ public class ChromeOptionsOwn {
 
         if (OptionsCollector.getHeadless().equals("true")) {
             options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--no-sandbox");
             options.addArguments("window-size=1920,1080");
         }
         return options;

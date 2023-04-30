@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIf;
 
 @Tags({@Tag("regression"), @Tag("interactions"), @Tag("resizable")})
 public class ResizableTest extends Base {
@@ -27,6 +28,7 @@ public class ResizableTest extends Base {
     }
 
     @Tag("432")
+    @DisplayName("Resizable no limit test")
     @Test
     public void resizableNoLimitTest() {
         mainPage()

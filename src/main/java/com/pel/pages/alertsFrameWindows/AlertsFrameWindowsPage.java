@@ -56,6 +56,7 @@ public class AlertsFrameWindowsPage extends PageObject {
     }
 
     private void waitScrollClick(WebElement element, int seconds) {
+        fluentWait.sleep(1);
         fluentWait.pollingUntilVisibilityOfElement(1, seconds, element);
         javaScript.scrollToElement(element);
         element.click();

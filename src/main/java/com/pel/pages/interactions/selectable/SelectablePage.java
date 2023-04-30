@@ -37,6 +37,7 @@ public class SelectablePage extends PageObject {
     }
 
     public SelectablePage clickGridTab() {
+        fluentWait.sleep(1);
         fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, gridTab);
         javaScript.scrollToElement(gridTab);
         gridTab.click();

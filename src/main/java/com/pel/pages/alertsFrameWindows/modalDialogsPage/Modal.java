@@ -24,6 +24,7 @@ public class Modal extends PageObject {
     private WebElement xButton;
 
     public Modal checkIfHeaderContainsText(String expectedText) {
+        fluentWait.sleep(1);
         checkIfElementContainsText(modalHeader, expectedText);
         return new Modal();
     }
