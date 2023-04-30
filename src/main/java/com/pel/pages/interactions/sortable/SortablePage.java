@@ -74,11 +74,13 @@ public class SortablePage extends PageObject {
     }
 
     public SortablePage checkIfListEquals(List<String> listExcepted) {
+        fluentWait.sleep(1);
         check.checkIfListsAreEqual(getList(elementsList), listExcepted);
         return new SortablePage();
     }
 
     public SortablePage checkIfGridEquals(List<String> listExcepted) {
+        fluentWait.sleep(1);
         check.checkIfListsAreEqual(getList(elementsGrid), listExcepted);
         return new SortablePage();
     }

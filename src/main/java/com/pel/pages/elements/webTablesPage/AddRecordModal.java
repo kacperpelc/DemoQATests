@@ -66,6 +66,7 @@ public class AddRecordModal extends PageObject {
     }
 
     public WebTablesPage clickSubmitButton() {
+        fluentWait.sleep(1);
         fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, submitButton);
         submitButton.click();
         return new WebTablesPage();

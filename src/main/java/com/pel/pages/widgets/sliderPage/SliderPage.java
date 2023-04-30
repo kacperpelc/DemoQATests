@@ -21,6 +21,7 @@ public class SliderPage extends PageObject {
     private WebElement sliderValue;
 
     public SliderPage dragAndDropSlider(int x) {
+        fluentWait.sleep(1);
         fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, slider);
         mouse.dragAndDrop(slider, x, 0);
         return new SliderPage();
