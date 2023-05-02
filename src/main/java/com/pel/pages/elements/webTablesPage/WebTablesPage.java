@@ -43,6 +43,7 @@ public class WebTablesPage extends PageObject {
     private WebElement actionFilter;
 
     public AddRecordModal clickAddButton() {
+        fluentWait.sleep(1);
         fluentWait.pollingUntilVisibilityOfElement(1, Constants.TIMEOUT_MEDIUM_HIGH, addButton);
         addButton.click();
         return new AddRecordModal();
